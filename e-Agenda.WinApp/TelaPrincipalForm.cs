@@ -79,5 +79,13 @@ namespace e_Agenda.WinApp
             controlador.Excluir();
         }
 
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            if (controlador is IControladorFiltrador)
+            {
+                IControladorFiltrador controladorFiltrador = (IControladorFiltrador)controlador;
+                controladorFiltrador.MostrarListagemFiltrada();
+            }
+        }
     }
 }

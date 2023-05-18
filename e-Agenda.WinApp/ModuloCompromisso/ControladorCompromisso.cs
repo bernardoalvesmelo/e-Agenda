@@ -3,8 +3,9 @@ using e_Agenda.WinApp.ModuloContato;
 
 namespace e_Agenda.WinApp.ModuloCompromisso
 {
-    public class ControladorCompromisso : ControladorBase
+    public class ControladorCompromisso : ControladorBase,  IControladorFiltrador
     {
+        private bool alternadorData = false;
         private RepositorioCompromisso repositorioCompromisso;
         private RepositorioContato repositorioContato;
         private ListagemCompromissoControl listagemCompromisso;
@@ -105,6 +106,26 @@ namespace e_Agenda.WinApp.ModuloCompromisso
             CarregarCompromissos();
 
             return listagemCompromisso;
+        }
+
+        public void MostrarListagemFiltrada()
+        {
+            if (listagemCompromisso == null)
+                listagemCompromisso = new ListagemCompromissoControl();
+
+            TelaCompromissoFiltroForm telaCompromisso = new TelaCompromissoFiltroForm();
+
+            DialogResult opcaoEscolhida = telaCompromisso.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                DateTime periodo = telaCompromisso.Periodo;
+
+                List<Compromisso> compromissos = repositorioCompromisso.SelecionarFiltrados(periodo);
+
+                listagemCompromisso.AtualizarRegistros(compromissos);
+
+            }
         }
 
         public override string ObterTipoCadastro()

@@ -17,6 +17,11 @@
             return compromissos;
         }
 
+        public List<Compromisso> SelecionarFiltrados(DateTime dataPeriodo)
+        {
+            return compromissos.FindAll(c => c.data > dataPeriodo); 
+        }
+
         public void Editar(Compromisso compromisso)
         {
         Compromisso compromissoSelecionado = SelecionarPorId(compromisso.id);
