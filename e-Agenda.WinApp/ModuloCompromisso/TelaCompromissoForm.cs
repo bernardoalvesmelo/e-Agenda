@@ -58,7 +58,7 @@ namespace e_Agenda.WinApp.ModuloCompromisso
             string local = txtLocal.Text;
             DateTime data = dateTimeData.Value;
             DateTime horaInicio = dateTimeInicio.Value;
-            DateTime horaTermino= dateTimeTermino.Value;
+            DateTime horaTermino = dateTimeTermino.Value;
 
             Contato contato = contatos.Find(c => c.nome == cmbContatos.SelectedItem);
 
