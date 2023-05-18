@@ -21,6 +21,11 @@
         {
             return compromissos.FindAll(c => c.data > dataPeriodo); 
         }
+        
+        public List<Compromisso> SelecionarAlternativa(Predicate<Compromisso> alternativa)
+        {
+            return compromissos.FindAll(alternativa);
+        }
 
         public void Editar(Compromisso compromisso)
         {

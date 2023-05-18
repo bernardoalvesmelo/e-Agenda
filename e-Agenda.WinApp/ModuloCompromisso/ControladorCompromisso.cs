@@ -3,7 +3,7 @@ using e_Agenda.WinApp.ModuloContato;
 
 namespace e_Agenda.WinApp.ModuloCompromisso
 {
-    public class ControladorCompromisso : ControladorBase,  IControladorFiltrador
+    public class ControladorCompromisso : ControladorBase,  IControladorFiltrador, IControladorApresentador
     {
         private bool alternadorData = false;
         private RepositorioCompromisso repositorioCompromisso;
@@ -122,6 +122,37 @@ namespace e_Agenda.WinApp.ModuloCompromisso
                 DateTime periodo = telaCompromisso.Periodo;
 
                 List<Compromisso> compromissos = repositorioCompromisso.SelecionarFiltrados(periodo);
+
+                listagemCompromisso.AtualizarRegistros(compromissos);
+
+            }
+        }
+
+        public void MostrarListagemAlternativa()
+        {
+            if (listagemCompromisso == null)
+                listagemCompromisso = new ListagemCompromissoControl();
+
+            TelaCompromissoAlternativaForm telaCompromisso = new TelaCompromissoAlternativaForm();
+
+            DialogResult opcaoEscolhida = telaCompromisso.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                List<Compromisso> compromissos;
+
+                switch (telaCompromisso.Alternativa)
+                {
+                    case 1:
+                        compromissos = repositorioCompromisso.SelecionarAlternativa(c => c.data > DateTime.Now);
+                        break;
+                    case 2:
+                        compromissos = repositorioCompromisso.SelecionarAlternativa(c => c.data < DateTime.Now);
+                        break;
+                    default:
+                        compromissos = repositorioCompromisso.SelecionarTodos();
+                        break;
+                }
 
                 listagemCompromisso.AtualizarRegistros(compromissos);
 

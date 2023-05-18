@@ -47,6 +47,7 @@
             toolStripSeparator1 = new ToolStripSeparator();
             labelTipoCadastro = new ToolStripLabel();
             panelRegistros = new Panel();
+            btnExibir = new ToolStripButton();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -131,7 +132,7 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnFiltrar, btnExcluir, toolStripSeparator1, labelTipoCadastro });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExibir, btnFiltrar, btnExcluir, toolStripSeparator1, labelTipoCadastro });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(800, 45);
@@ -206,6 +207,18 @@
             panelRegistros.Size = new Size(800, 359);
             panelRegistros.TabIndex = 3;
             // 
+            // btnExibir
+            // 
+            btnExibir.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnExibir.Image = Properties.Resources.view_kanban_FILL0_wght400_GRAD0_opsz24;
+            btnExibir.ImageScaling = ToolStripItemImageScaling.None;
+            btnExibir.ImageTransparentColor = Color.Magenta;
+            btnExibir.Name = "btnExibir";
+            btnExibir.Padding = new Padding(7);
+            btnExibir.Size = new Size(42, 42);
+            btnExibir.Text = "Exibição alternativa";
+            btnExibir.Click += btnExibir_Click;
+            // 
             // TelaPrincipalForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -251,5 +264,6 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripLabel labelTipoCadastro;
         private ToolStripButton btnFiltrar;
+        private ToolStripButton btnExibir;
     }
 }

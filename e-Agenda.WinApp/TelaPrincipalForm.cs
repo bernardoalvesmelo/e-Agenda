@@ -87,5 +87,14 @@ namespace e_Agenda.WinApp
                 controladorFiltrador.MostrarListagemFiltrada();
             }
         }
+
+        private void btnExibir_Click(object sender, EventArgs e)
+        {
+            if (controlador is IControladorApresentador)
+            {
+                IControladorApresentador controladorApresentador = (IControladorApresentador)controlador;
+                controladorApresentador.MostrarListagemAlternativa();
+            }
+        }
     }
 }
