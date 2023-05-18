@@ -31,9 +31,9 @@ namespace e_Agenda.WinApp.ModuloContato
 
         private void ConfigurarEventos()
         {
-            foreach(Control control in panInputs.Controls)
+            foreach (Control control in panInputs.Controls)
             {
-                if(control is TextBox)
+                if (control is TextBox)
                 {
                     TextBox textBox = (TextBox)control;
                     textBox.TextChanged += ValidarInputs;
@@ -44,7 +44,7 @@ namespace e_Agenda.WinApp.ModuloContato
         private void ValidarInputs(object sender, EventArgs e)
         {
             List<string> erros = ObterErros();
-            if(erros.Count == 0)
+            if (erros.Count == 0)
             {
                 btnGravar.Enabled = true;
                 lbErros.Text = "Sem erros";
@@ -57,7 +57,7 @@ namespace e_Agenda.WinApp.ModuloContato
         public List<string> ObterErros()
         {
             List<string> erros = new List<string>();
-            if(txtNome.Text.Trim() == "")
+            if (txtNome.Text.Trim() == "")
             {
                 erros.Add("Nome não pode ser vazio");
             }
@@ -77,12 +77,12 @@ namespace e_Agenda.WinApp.ModuloContato
             {
                 erros.Add("Empresa não pode ser vazio");
             }
-            if(!Regex.IsMatch(txtTelefone.Text, 
+            if (!Regex.IsMatch(txtTelefone.Text,
                 @"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"))
             {
                 erros.Add("Telefone está com formato incorreto");
             }
-            if(!Regex.IsMatch(txtEmail.Text, 
+            if (!Regex.IsMatch(txtEmail.Text,
                 "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*"))
             {
                 erros.Add("Email está com formato incorreto");

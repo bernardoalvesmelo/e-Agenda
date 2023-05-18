@@ -119,9 +119,10 @@ namespace e_Agenda.WinApp.ModuloCompromisso
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                DateTime periodo = telaCompromisso.Periodo;
+                Predicate<Compromisso> periodo  = c => c.data > telaCompromisso.DataInicial
+                && c.data <= telaCompromisso.DataFinal;
 
-                List<Compromisso> compromissos = repositorioCompromisso.SelecionarFiltrados(periodo);
+                List<Compromisso> compromissos = repositorioCompromisso.SelecionarAlternativa(periodo);
 
                 listagemCompromisso.AtualizarRegistros(compromissos);
 

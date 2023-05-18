@@ -2,16 +2,26 @@
 {
     public partial class TelaCompromissoFiltroForm : Form
     {
-        public DateTime Periodo { 
-            get 
+        public DateTime DataInicial
+        {
+            get
             {
-                return dateTimePeriodo.Value;
-            } 
+                return dateTimeInicio.Value;
+            }
+        }
+
+        public DateTime DataFinal
+        {
+            get
+            {
+                return dateTimeFinal.Value;
+            }
         }
         public TelaCompromissoFiltroForm()
         {
             InitializeComponent();
-            this.dateTimePeriodo.MinDate = DateTime.Now;
+            this.dateTimeInicio.MinDate = DateTime.Now;
+            this.dateTimeFinal.MinDate = DateTime.Now;
         }
     }
 }

@@ -16,11 +16,6 @@
         {
             return compromissos;
         }
-
-        public List<Compromisso> SelecionarFiltrados(DateTime dataPeriodo)
-        {
-            return compromissos.FindAll(c => c.data > dataPeriodo); 
-        }
         
         public List<Compromisso> SelecionarAlternativa(Predicate<Compromisso> alternativa)
         {

@@ -183,8 +183,8 @@
             // lbErros
             // 
             lbErros.Name = "lbErros";
-            lbErros.Size = new Size(59, 17);
-            lbErros.Text = "Sem erros";
+            lbErros.Size = new Size(116, 17);
+            lbErros.Text = "Preencha os campos";
             // 
             // panInputs
             // 
