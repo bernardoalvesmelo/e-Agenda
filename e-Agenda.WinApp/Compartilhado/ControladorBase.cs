@@ -6,6 +6,10 @@
 
         public abstract string ToolTipEditar { get; }
 
+        public virtual string ToolTipFiltrar { get { return "Filtro indisponível"; } }
+
+        public virtual string ToolTipExibir { get { return "Exibição indisponível"; } }
+
         public abstract string ToolTipExcluir { get; }
 
         public abstract void Inserir();

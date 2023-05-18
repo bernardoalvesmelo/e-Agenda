@@ -62,6 +62,8 @@ namespace e_Agenda.WinApp
             btnInserir.ToolTipText = controlador.ToolTipInserir;
             btnEditar.ToolTipText = controlador.ToolTipEditar;
             btnExcluir.ToolTipText = controlador.ToolTipExcluir;
+            btnFiltrar.ToolTipText = controlador.ToolTipFiltrar;
+            btnExibir.ToolTipText = controlador.ToolTipExibir;
         }
 
         private void btnInserir_Click(object sender, EventArgs e)

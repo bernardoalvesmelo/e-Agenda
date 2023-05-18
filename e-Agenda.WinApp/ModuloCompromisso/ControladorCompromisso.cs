@@ -5,7 +5,6 @@ namespace e_Agenda.WinApp.ModuloCompromisso
 {
     public class ControladorCompromisso : ControladorBase,  IControladorFiltrador, IControladorApresentador
     {
-        private bool alternadorData = false;
         private RepositorioCompromisso repositorioCompromisso;
         private RepositorioContato repositorioContato;
         private ListagemCompromissoControl listagemCompromisso;
@@ -21,6 +20,10 @@ namespace e_Agenda.WinApp.ModuloCompromisso
         public override string ToolTipEditar { get { return "Editar Compromisso existente"; } }
 
         public override string ToolTipExcluir { get { return "Excluir Compromisso existente"; } }
+
+        public  override string ToolTipFiltrar { get { return "Filtrar Compromissos existentes"; } }
+
+        public override string ToolTipExibir { get { return "Exibir Listagens Alternativas de Compromissos"; } }
 
         public override void Inserir()
         {
