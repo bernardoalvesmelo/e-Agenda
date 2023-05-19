@@ -14,7 +14,7 @@
         {
             get
             {
-                return dateTimeFinal.Value;
+                return dateTimeFinal.Value.Date;
             }
         }
         public TelaCompromissoFiltroForm()
