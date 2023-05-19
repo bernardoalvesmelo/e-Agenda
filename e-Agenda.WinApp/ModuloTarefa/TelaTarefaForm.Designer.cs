@@ -28,33 +28,152 @@
         /// </summary>
         private void InitializeComponent()
         {
+            btnCancelar = new Button();
+            btnGravar = new Button();
+            label7 = new Label();
+            label2 = new Label();
+            dateTimeCriacao = new DateTimePicker();
+            cmbPrioridade = new ComboBox();
+            label3 = new Label();
+            txtId = new TextBox();
             label1 = new Label();
+            txtTitulo = new TextBox();
             SuspendLayout();
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancelar.DialogResult = DialogResult.Cancel;
+            btnCancelar.Location = new Point(357, 168);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(75, 41);
+            btnCancelar.TabIndex = 3;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // btnGravar
+            // 
+            btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnGravar.DialogResult = DialogResult.OK;
+            btnGravar.Location = new Point(276, 168);
+            btnGravar.Name = "btnGravar";
+            btnGravar.Size = new Size(75, 41);
+            btnGravar.TabIndex = 2;
+            btnGravar.Text = "Gravar";
+            btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.Click += btnGravar_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(103, 61);
+            label7.Name = "label7";
+            label7.Size = new Size(40, 15);
+            label7.TabIndex = 46;
+            label7.Text = "Título:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(50, 95);
+            label2.Name = "label2";
+            label2.Size = new Size(93, 15);
+            label2.TabIndex = 45;
+            label2.Text = "Data de Criação:";
+            // 
+            // dateTimeCriacao
+            // 
+            dateTimeCriacao.Location = new Point(152, 89);
+            dateTimeCriacao.Name = "dateTimeCriacao";
+            dateTimeCriacao.Size = new Size(235, 23);
+            dateTimeCriacao.TabIndex = 44;
+            // 
+            // cmbPrioridade
+            // 
+            cmbPrioridade.FormattingEnabled = true;
+            cmbPrioridade.Items.AddRange(new object[] { "Baixa", "Normal", "Alta" });
+            cmbPrioridade.Location = new Point(152, 121);
+            cmbPrioridade.Name = "cmbPrioridade";
+            cmbPrioridade.Size = new Size(235, 23);
+            cmbPrioridade.TabIndex = 43;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(79, 124);
+            label3.Name = "label3";
+            label3.Size = new Size(64, 15);
+            label3.TabIndex = 39;
+            label3.Text = "Prioridade:";
+            // 
+            // txtId
+            // 
+            txtId.Location = new Point(152, 29);
+            txtId.Name = "txtId";
+            txtId.ReadOnly = true;
+            txtId.Size = new Size(100, 23);
+            txtId.TabIndex = 36;
+            txtId.Text = "0";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(122, 170);
+            label1.Location = new Point(126, 32);
             label1.Name = "label1";
-            label1.Size = new Size(285, 37);
-            label1.TabIndex = 1;
-            label1.Text = "Formulário de Tarefa";
+            label1.Size = new Size(20, 15);
+            label1.TabIndex = 35;
+            label1.Text = "Id:";
+            // 
+            // txtTitulo
+            // 
+            txtTitulo.Location = new Point(152, 58);
+            txtTitulo.Name = "txtTitulo";
+            txtTitulo.Size = new Size(235, 23);
+            txtTitulo.TabIndex = 47;
             // 
             // TelaTarefaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(612, 443);
+            ClientSize = new Size(444, 221);
+            Controls.Add(txtTitulo);
+            Controls.Add(label7);
+            Controls.Add(label2);
+            Controls.Add(dateTimeCriacao);
+            Controls.Add(cmbPrioridade);
+            Controls.Add(label3);
+            Controls.Add(txtId);
             Controls.Add(label1);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnGravar);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "TelaTarefaForm";
-            Text = "TelaTarefaForm";
+            Text = "Cadastro de Tarefa";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
+        private Button btnCancelar;
+        private Button btnGravar;
+        private DateTimePicker dateTimeTermino;
+        private DateTimePicker dateTimeInicio;
+        private Label label8;
+        private Label label7;
+        private Label label2;
+        private DateTimePicker dateTimeCriacao;
+        private ComboBox cmbPrioridade;
+        private Label label6;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private TextBox txtLocal;
+        private TextBox txtAssunto;
+        private TextBox txtId;
         private Label label1;
+        private TextBox txtTitulo;
     }
 }

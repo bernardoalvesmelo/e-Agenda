@@ -10,6 +10,7 @@ namespace e_Agenda.WinApp
         private ControladorBase controlador;
         private RepositorioContato repositorioContato = new RepositorioContato();
         private RepositorioCompromisso repositorioCompromisso = new RepositorioCompromisso();
+        private RepositorioTarefa repositorioTarefa = new RepositorioTarefa();
 
         public TelaPrincipalForm()
         {
@@ -32,7 +33,7 @@ namespace e_Agenda.WinApp
 
         private void tarefasMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorTarefa();
+            controlador = new ControladorTarefa(repositorioTarefa);
 
             ConfigurarTelaPrincipal(controlador);
         }
