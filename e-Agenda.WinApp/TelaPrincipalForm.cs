@@ -42,6 +42,8 @@ namespace e_Agenda.WinApp
         {
             labelTipoCadastro.Text = controladorBase.ObterTipoCadastro();
 
+            ConfigurarToolBotoes(controlador);
+
             ConfigurarToolTips(controlador);
 
             ConfigurarListagem(controlador);
@@ -65,8 +67,17 @@ namespace e_Agenda.WinApp
             btnExcluir.ToolTipText = controlador.ToolTipExcluir;
             btnFiltrar.ToolTipText = controlador.ToolTipFiltrar;
             btnAdicionar.ToolTipText = controlador.ToolTipAdicionar;
-            btnExibir.ToolTipText = controlador.ToolTipExibir;
             btnConcluir.ToolTipText = controlador.ToolTipConcluir;
+        }
+
+        private void ConfigurarToolBotoes(ControladorBase controlador)
+        {
+            btnInserir.Enabled = controlador.InserirAbilitado;
+            btnEditar.Enabled = controlador.EditarAbilitado;
+            btnExcluir.Enabled = controlador.ExcluirAbilitado;
+            btnFiltrar.Enabled = controlador.FiltrarAbilitado;
+            btnAdicionar.Enabled = controlador.AdicionarAbilitado;
+            btnConcluir.Enabled = controlador.ConcluirAbilitado;
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
@@ -86,20 +97,7 @@ namespace e_Agenda.WinApp
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            if (controlador is IControladorFiltrador)
-            {
-                IControladorFiltrador controladorFiltrador = (IControladorFiltrador)controlador;
-                controladorFiltrador.MostrarListagemFiltrada();
-            }
-        }
-
-        private void btnExibir_Click(object sender, EventArgs e)
-        {
-            if (controlador is IControladorApresentador)
-            {
-                IControladorApresentador controladorApresentador = (IControladorApresentador)controlador;
-                controladorApresentador.MostrarListagemAlternativa();
-            }
+            controlador.Filtrar();
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)

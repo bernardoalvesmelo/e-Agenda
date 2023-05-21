@@ -18,6 +18,17 @@ namespace e_Agenda.WinApp.ModuloContato
 
         public override string ToolTipExcluir { get { return "Excluir Contato existente"; } }
 
+        public override bool InserirAbilitado { get { return true; } }
+
+        public override bool EditarAbilitado { get { return true; } }
+
+        public override bool ExcluirAbilitado { get { return true; } }
+
+        public override bool FiltrarAbilitado { get { return false; } }
+
+        public override bool ConcluirAbilitado { get { return false; } }
+
+        public override bool AdicionarAbilitado { get { return false; } }
         public override void Inserir()
         {
             TelaContatoForm telaContato = new TelaContatoForm();

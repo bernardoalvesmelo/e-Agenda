@@ -3,7 +3,7 @@ using e_Agenda.WinApp.ModuloContato;
 
 namespace e_Agenda.WinApp.ModuloCompromisso
 {
-    public class ControladorCompromisso : ControladorBase,  IControladorFiltrador, IControladorApresentador
+    public class ControladorCompromisso : ControladorBase
     {
         private RepositorioCompromisso repositorioCompromisso;
         private RepositorioContato repositorioContato;
@@ -23,7 +23,17 @@ namespace e_Agenda.WinApp.ModuloCompromisso
 
         public  override string ToolTipFiltrar { get { return "Filtrar Compromissos existentes"; } }
 
-        public override string ToolTipExibir { get { return "Exibir Listagens Alternativas de Compromissos"; } }
+        public override bool InserirAbilitado { get {return true;} }
+
+        public override bool EditarAbilitado { get { return true; } }
+
+        public override bool ExcluirAbilitado { get { return true; } }
+
+        public override bool FiltrarAbilitado { get { return true; } }
+
+        public override bool ConcluirAbilitado { get { return false; } }
+
+        public override bool AdicionarAbilitado { get { return false; } }
 
         public override void Inserir()
         {
@@ -111,7 +121,7 @@ namespace e_Agenda.WinApp.ModuloCompromisso
             return listagemCompromisso;
         }
 
-        public void MostrarListagemFiltrada()
+        public void FiltrarPeriodo()
         {
             if (listagemCompromisso == null)
                 listagemCompromisso = new ListagemCompromissoControl();
@@ -132,7 +142,7 @@ namespace e_Agenda.WinApp.ModuloCompromisso
             }
         }
 
-        public void MostrarListagemAlternativa()
+        public override void Filtrar()
         {
             if (listagemCompromisso == null)
                 listagemCompromisso = new ListagemCompromissoControl();
@@ -140,7 +150,11 @@ namespace e_Agenda.WinApp.ModuloCompromisso
             TelaCompromissoAlternativaForm telaCompromisso = new TelaCompromissoAlternativaForm();
 
             DialogResult opcaoEscolhida = telaCompromisso.ShowDialog();
-
+            if(opcaoEscolhida == DialogResult.Continue)
+            {
+                FiltrarPeriodo();
+                return;
+            }
             if (opcaoEscolhida == DialogResult.OK)
             {
                 List<Compromisso> compromissos;
@@ -157,9 +171,7 @@ namespace e_Agenda.WinApp.ModuloCompromisso
                         compromissos = repositorioCompromisso.SelecionarTodos();
                         break;
                 }
-
                 listagemCompromisso.AtualizarRegistros(compromissos);
-
             }
         }
 
@@ -168,6 +180,5 @@ namespace e_Agenda.WinApp.ModuloCompromisso
             return "Cadastro de Compromissos";            
         }
 
-        
     }
 }

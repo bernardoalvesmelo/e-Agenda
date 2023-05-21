@@ -44,7 +44,6 @@
             btnEditar = new ToolStripButton();
             btnAdicionar = new ToolStripButton();
             btnConcluir = new ToolStripButton();
-            btnExibir = new ToolStripButton();
             btnFiltrar = new ToolStripButton();
             btnExcluir = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
@@ -134,7 +133,7 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnAdicionar, btnConcluir, btnExibir, btnFiltrar, btnExcluir, toolStripSeparator1, labelTipoCadastro });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnAdicionar, btnConcluir, btnFiltrar, btnExcluir, toolStripSeparator1, labelTipoCadastro });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(800, 45);
@@ -144,6 +143,7 @@
             // btnInserir
             // 
             btnInserir.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnInserir.Enabled = false;
             btnInserir.Image = Properties.Resources.add_circle_FILL0_wght400_GRAD0_opsz24;
             btnInserir.ImageScaling = ToolStripItemImageScaling.None;
             btnInserir.ImageTransparentColor = Color.Magenta;
@@ -156,6 +156,7 @@
             // btnEditar
             // 
             btnEditar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnEditar.Enabled = false;
             btnEditar.Image = Properties.Resources.edit_FILL0_wght400_GRAD0_opsz24;
             btnEditar.ImageScaling = ToolStripItemImageScaling.None;
             btnEditar.ImageTransparentColor = Color.Magenta;
@@ -168,6 +169,7 @@
             // btnAdicionar
             // 
             btnAdicionar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnAdicionar.Enabled = false;
             btnAdicionar.Image = Properties.Resources.add_box_FILL0_wght400_GRAD0_opsz24;
             btnAdicionar.ImageScaling = ToolStripItemImageScaling.None;
             btnAdicionar.ImageTransparentColor = Color.Magenta;
@@ -181,6 +183,7 @@
             // btnConcluir
             // 
             btnConcluir.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnConcluir.Enabled = false;
             btnConcluir.Image = Properties.Resources.check_box_FILL0_wght400_GRAD0_opsz24;
             btnConcluir.ImageScaling = ToolStripItemImageScaling.None;
             btnConcluir.ImageTransparentColor = Color.Magenta;
@@ -190,21 +193,10 @@
             btnConcluir.Text = "Concluir";
             btnConcluir.Click += btnConcluir_Click;
             // 
-            // btnExibir
-            // 
-            btnExibir.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnExibir.Image = Properties.Resources.view_kanban_FILL0_wght400_GRAD0_opsz24;
-            btnExibir.ImageScaling = ToolStripItemImageScaling.None;
-            btnExibir.ImageTransparentColor = Color.Magenta;
-            btnExibir.Name = "btnExibir";
-            btnExibir.Padding = new Padding(7);
-            btnExibir.Size = new Size(42, 42);
-            btnExibir.Text = "Exibição alternativa";
-            btnExibir.Click += btnExibir_Click;
-            // 
             // btnFiltrar
             // 
             btnFiltrar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnFiltrar.Enabled = false;
             btnFiltrar.Image = Properties.Resources.filter_list_FILL0_wght400_GRAD0_opsz24;
             btnFiltrar.ImageScaling = ToolStripItemImageScaling.None;
             btnFiltrar.ImageTransparentColor = Color.Magenta;
@@ -217,6 +209,7 @@
             // btnExcluir
             // 
             btnExcluir.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnExcluir.Enabled = false;
             btnExcluir.Image = Properties.Resources.delete_FILL0_wght400_GRAD0_opsz24;
             btnExcluir.ImageScaling = ToolStripItemImageScaling.None;
             btnExcluir.ImageTransparentColor = Color.Magenta;
@@ -291,7 +284,6 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripLabel labelTipoCadastro;
         private ToolStripButton btnFiltrar;
-        private ToolStripButton btnExibir;
         private ToolStripButton btnAdicionar;
         private ToolStripButton btnConcluir;
     }

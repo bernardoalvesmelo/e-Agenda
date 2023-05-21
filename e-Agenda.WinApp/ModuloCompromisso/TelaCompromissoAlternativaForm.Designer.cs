@@ -32,6 +32,7 @@
             label1 = new Label();
             btnCancelar = new Button();
             btnExibir = new Button();
+            btnFiltrarPeriodo = new Button();
             SuspendLayout();
             // 
             // cmbAlternativa
@@ -57,7 +58,7 @@
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(248, 127);
+            btnCancelar.Location = new Point(248, 168);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 41);
             btnCancelar.TabIndex = 23;
@@ -68,18 +69,29 @@
             // 
             btnExibir.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnExibir.DialogResult = DialogResult.OK;
-            btnExibir.Location = new Point(167, 127);
+            btnExibir.Location = new Point(167, 168);
             btnExibir.Name = "btnExibir";
             btnExibir.Size = new Size(75, 41);
             btnExibir.TabIndex = 22;
             btnExibir.Text = "Exibir";
             btnExibir.UseVisualStyleBackColor = true;
             // 
+            // btnFiltrarPeriodo
+            // 
+            btnFiltrarPeriodo.DialogResult = DialogResult.Continue;
+            btnFiltrarPeriodo.Location = new Point(72, 125);
+            btnFiltrarPeriodo.Name = "btnFiltrarPeriodo";
+            btnFiltrarPeriodo.Size = new Size(210, 23);
+            btnFiltrarPeriodo.TabIndex = 24;
+            btnFiltrarPeriodo.Text = "Filtrar Por Período";
+            btnFiltrarPeriodo.UseVisualStyleBackColor = true;
+            // 
             // TelaCompromissoAlternativaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(353, 189);
+            ClientSize = new Size(353, 230);
+            Controls.Add(btnFiltrarPeriodo);
             Controls.Add(btnCancelar);
             Controls.Add(btnExibir);
             Controls.Add(label1);
@@ -99,5 +111,6 @@
         private Label label1;
         private Button btnCancelar;
         private Button btnExibir;
+        private Button btnFiltrarPeriodo;
     }
 }
