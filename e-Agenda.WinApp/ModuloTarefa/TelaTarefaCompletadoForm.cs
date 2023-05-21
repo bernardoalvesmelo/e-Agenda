@@ -22,7 +22,7 @@
 
         public void CarregarItens()
         {
-            if(itens.Count > 0)
+            if(itens.Count > 1)
             {
                 dateTimeConclusao.Enabled = false;
                 foreach(Item item in itens)
@@ -32,7 +32,10 @@
                 cmbItens.SelectedItem = itens[0].descricao;
                 return;
             }
-            cmbItens.Enabled = false;
+            if (itens.Count == 0)
+            {
+                cmbItens.Enabled = false;
+            }
         }
 
         private void btnConcluir_Click(object sender, EventArgs e)

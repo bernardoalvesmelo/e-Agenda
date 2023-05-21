@@ -128,6 +128,16 @@ namespace e_Agenda.WinApp.ModuloTarefa
                 return;
             }
 
+            if (tarefa.dataConclusao != new DateTime())
+            {
+                MessageBox.Show($"A tarefa já foi concluída!",
+                    "Conclusão de Tarefas",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
             TelaTarefaCompletadoForm telaTarefa = new TelaTarefaCompletadoForm();
             telaTarefa.ListaItens = tarefa.itens.FindAll(t => !t.completado);
             telaTarefa.CarregarItens();
