@@ -19,6 +19,8 @@ namespace e_Agenda.WinApp.ModuloTarefa
 
         public override string ToolTipAdicionar { get { return "Adicionar Item de Tarefa existente"; } }
 
+        public override string ToolTipFiltrar { get { return "Filtrar lista de Tarefas existentes"; } }
+
         public override string ToolTipConcluir { get { return "Concluir Item ou Tarefa existente"; } }
 
         public override bool InserirAbilitado { get { return true; } }
@@ -101,6 +103,46 @@ namespace e_Agenda.WinApp.ModuloTarefa
                 repositorioTarefa.InserirItem(tarefa, telaTarefa.Item);
 
                 CarregarTarefas();
+            }
+        }
+
+        public override void Filtrar()
+        {
+            Tarefa tarefa = listagemTarefa.ObterTarefaSelecionada();
+
+            if (tarefa == null)
+            {
+                MessageBox.Show($"Selecione uma tarefa primeiro!",
+                    "Adição de Itens",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            TelaTarefaFiltroForm telaTarefa = new TelaTarefaFiltroForm();
+
+            DialogResult opcaoEscolhida = telaTarefa.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+               List<Tarefa> tarefas;
+               switch(telaTarefa.Alternativa)
+               {
+                    case 1:
+                        tarefas = repositorioTarefa.SelecionarAlternativa(t => t.Percentual == "100%");
+                        break;
+                    case 2:
+                        tarefas = repositorioTarefa.SelecionarAlternativa(t => t.Percentual != "100%");
+                        break;
+                    case 3:
+                        tarefas = repositorioTarefa.SelecionarPrioridadeOrdenada();
+                        break;
+                    default:
+                        tarefas = repositorioTarefa.SelecionarTodos();
+                        break;
+                }
+                listagemTarefa.AtualizarRegistros(tarefas);
             }
         }
 

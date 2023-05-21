@@ -1,4 +1,6 @@
-﻿namespace e_Agenda.WinApp.ModuloTarefa
+﻿using e_Agenda.WinApp.ModuloCompromisso;
+
+namespace e_Agenda.WinApp.ModuloTarefa
 {
     public class RepositorioTarefa
     {
@@ -33,6 +35,28 @@
         public List<Tarefa> SelecionarTodos()
         {
             return tarefas;
+        }
+
+        public List<Tarefa> SelecionarAlternativa(Predicate<Tarefa> alternativa)
+        {
+            return tarefas.FindAll(alternativa);
+        }
+
+        public List<Tarefa> SelecionarPrioridadeOrdenada()
+        {
+            string[] prioridades = { "Baixa", "Normal", "Alta" };
+            tarefas.Sort(CompararPrioridades);
+            return tarefas;
+        }
+
+        private int CompararPrioridades(Tarefa tarefaX, Tarefa tarefaY)
+        {
+            string prioridadeX = tarefaX.prioridade;
+            string prioridadeY = tarefaY.prioridade;
+            string[] prioridades = { "Baixa", "Normal", "Alta" };
+            int x = Array.IndexOf(prioridades, prioridadeX);
+            int y = Array.IndexOf(prioridades,prioridadeY);
+            return x.CompareTo(y);
         }
 
         public void Editar(Tarefa tarefa)
