@@ -64,6 +64,7 @@ namespace e_Agenda.WinApp
             btnEditar.ToolTipText = controlador.ToolTipEditar;
             btnExcluir.ToolTipText = controlador.ToolTipExcluir;
             btnFiltrar.ToolTipText = controlador.ToolTipFiltrar;
+            btnAdicionar.ToolTipText = controlador.ToolTipAdicionar;
             btnExibir.ToolTipText = controlador.ToolTipExibir;
         }
 
@@ -98,6 +99,11 @@ namespace e_Agenda.WinApp
                 IControladorApresentador controladorApresentador = (IControladorApresentador)controlador;
                 controladorApresentador.MostrarListagemAlternativa();
             }
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            controlador.AdicionarItem();
         }
     }
 }

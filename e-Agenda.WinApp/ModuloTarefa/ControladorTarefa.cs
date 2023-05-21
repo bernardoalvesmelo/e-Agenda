@@ -17,6 +17,8 @@ namespace e_Agenda.WinApp.ModuloTarefa
 
         public override string ToolTipExcluir { get { return "Excluir Tarefa existente"; } }
 
+        public override string ToolTipAdicionar { get { return "Adicionar Item de Tarefa Existente"; } }
+
         public override void Inserir()
         {
             TelaTarefaForm telaTarefa = new TelaTarefaForm();
@@ -55,6 +57,34 @@ namespace e_Agenda.WinApp.ModuloTarefa
             if (opcaoEscolhida == DialogResult.OK)
             {
                 repositorioTarefa.Editar(telaTarefa.Tarefa);
+
+                CarregarTarefas();
+            }
+        }
+
+        public override void AdicionarItem()
+        {
+            Tarefa tarefa = listagemTarefa.ObterTarefaSelecionada();
+
+            if (tarefa == null)
+            {
+                MessageBox.Show($"Selecione uma tarefa primeiro!",
+                    "Adição de Itens",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            TelaTarefaListaForm telaTarefa = new TelaTarefaListaForm();
+            telaTarefa.ListaItens = tarefa.itens;
+            telaTarefa.CarregarItens();
+
+            DialogResult opcaoEscolhida = telaTarefa.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                repositorioTarefa.InserirItem(tarefa, telaTarefa.Item);
 
                 CarregarTarefas();
             }

@@ -23,8 +23,6 @@
             }
         }
 
-
-
         public void DesabilitarDataCriacao()
         {
             dateTimeCriacao.Enabled = false;
