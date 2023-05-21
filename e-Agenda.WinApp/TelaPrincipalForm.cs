@@ -66,6 +66,7 @@ namespace e_Agenda.WinApp
             btnFiltrar.ToolTipText = controlador.ToolTipFiltrar;
             btnAdicionar.ToolTipText = controlador.ToolTipAdicionar;
             btnExibir.ToolTipText = controlador.ToolTipExibir;
+            btnConcluir.ToolTipText = controlador.ToolTipConcluir;
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
@@ -104,6 +105,11 @@ namespace e_Agenda.WinApp
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             controlador.AdicionarItem();
+        }
+
+        private void btnConcluir_Click(object sender, EventArgs e)
+        {
+            controlador.Concluir();
         }
     }
 }

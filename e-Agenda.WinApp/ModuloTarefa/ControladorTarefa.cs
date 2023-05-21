@@ -17,7 +17,9 @@ namespace e_Agenda.WinApp.ModuloTarefa
 
         public override string ToolTipExcluir { get { return "Excluir Tarefa existente"; } }
 
-        public override string ToolTipAdicionar { get { return "Adicionar Item de Tarefa Existente"; } }
+        public override string ToolTipAdicionar { get { return "Adicionar Item de Tarefa existente"; } }
+
+        public override string ToolTipConcluir { get { return "Concluir Item ou Tarefa existente"; } }
 
         public override void Inserir()
         {
@@ -85,6 +87,45 @@ namespace e_Agenda.WinApp.ModuloTarefa
             if (opcaoEscolhida == DialogResult.OK)
             {
                 repositorioTarefa.InserirItem(tarefa, telaTarefa.Item);
+
+                CarregarTarefas();
+            }
+        }
+
+        public override void Concluir()
+        {
+            Tarefa tarefa = listagemTarefa.ObterTarefaSelecionada();
+
+            if (tarefa == null)
+            {
+                MessageBox.Show($"Selecione uma tarefa primeiro!",
+                    "Conclusão de Tarefas",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            if (tarefa.itens.Count == 0)
+            {
+                MessageBox.Show($"A tarefa não possui itens!",
+                    "Conclusão de Tarefas",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            TelaTarefaCompletadoForm telaTarefa = new TelaTarefaCompletadoForm();
+            telaTarefa.ListaItens = tarefa.itens.FindAll(t => !t.completado);
+            telaTarefa.CarregarItens();
+
+            DialogResult opcaoEscolhida = telaTarefa.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                tarefa.dataConclusao = telaTarefa.DataConclusao;
+                repositorioTarefa.ConcluirItem(tarefa, telaTarefa.Item);
 
                 CarregarTarefas();
             }

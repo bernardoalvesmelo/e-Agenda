@@ -16,6 +16,7 @@
         public void InserirItem(Tarefa tarefa, Item item)
         {
             Tarefa tarefaSelecionada = SelecionarPorId(tarefa.id);
+            tarefaSelecionada.dataConclusao = new DateTime();
             item.id = ++contadorItem;
             tarefaSelecionada.itens.Add(item);
         }
@@ -23,7 +24,10 @@
         public void ConcluirItem(Tarefa tarefa, Item item)
         {
             Tarefa tarefaSelecionada = SelecionarPorId(tarefa.id);
-            tarefaSelecionada.itens.Find(i => i == item).completado = true;
+            tarefaSelecionada.dataConclusao = tarefa.dataConclusao;
+            if (item != null) {
+                tarefaSelecionada.itens.Find(i => i == item).completado = true;
+            }
         } 
 
         public List<Tarefa> SelecionarTodos()

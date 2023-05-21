@@ -43,6 +43,7 @@
             btnInserir = new ToolStripButton();
             btnEditar = new ToolStripButton();
             btnAdicionar = new ToolStripButton();
+            btnConcluir = new ToolStripButton();
             btnExibir = new ToolStripButton();
             btnFiltrar = new ToolStripButton();
             btnExcluir = new ToolStripButton();
@@ -133,7 +134,7 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnAdicionar, btnExibir, btnFiltrar, btnExcluir, toolStripSeparator1, labelTipoCadastro });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnAdicionar, btnConcluir, btnExibir, btnFiltrar, btnExcluir, toolStripSeparator1, labelTipoCadastro });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(800, 45);
@@ -176,6 +177,18 @@
             btnAdicionar.Text = "Exibição alternativa";
             btnAdicionar.ToolTipText = "Adicionar Item";
             btnAdicionar.Click += btnAdicionar_Click;
+            // 
+            // btnConcluir
+            // 
+            btnConcluir.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnConcluir.Image = Properties.Resources.check_box_FILL0_wght400_GRAD0_opsz24;
+            btnConcluir.ImageScaling = ToolStripItemImageScaling.None;
+            btnConcluir.ImageTransparentColor = Color.Magenta;
+            btnConcluir.Name = "btnConcluir";
+            btnConcluir.Padding = new Padding(7);
+            btnConcluir.Size = new Size(42, 42);
+            btnConcluir.Text = "Concluir";
+            btnConcluir.Click += btnConcluir_Click;
             // 
             // btnExibir
             // 
@@ -280,5 +293,6 @@
         private ToolStripButton btnFiltrar;
         private ToolStripButton btnExibir;
         private ToolStripButton btnAdicionar;
+        private ToolStripButton btnConcluir;
     }
 }

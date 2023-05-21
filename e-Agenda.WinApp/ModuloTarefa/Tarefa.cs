@@ -11,8 +11,9 @@
         public string Percentual {
             get 
             {
-                int completados = itens.FindAll(i => i.completado).Count;
-                return itens.Count > 0 ? $"{completados / itens.Count * 100}%" : "Sem Itens";
+                double completados = itens.FindAll(i => i.completado).Count;
+                return itens.Count > 0 ? $"{Math.Round((completados / itens.Count) * 100,2)}%" : 
+                    "Sem Itens";
             } 
         }
 

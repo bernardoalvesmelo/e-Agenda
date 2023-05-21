@@ -12,6 +12,8 @@
 
         public virtual string ToolTipAdicionar { get { return "Adição indisponível"; } }
 
+        public virtual string ToolTipConcluir { get { return "Conclusão indisponível"; } }
+
         public abstract string ToolTipExcluir { get; }
 
         public abstract void Inserir();
@@ -21,6 +23,11 @@
         public abstract void Excluir();
 
         public virtual void AdicionarItem()
+        {
+
+        }
+
+        public virtual void Concluir()
         {
 
         }
