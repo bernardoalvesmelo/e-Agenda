@@ -13,9 +13,11 @@
         {
             set
             {
+                txtId.Text = value.id.ToString();
                 txtTitulo.Text = value.titulo;
                 cmbPrioridade.SelectedItem = value.prioridade;
                 dateTimeCriacao.Value = value.dataCriacao;
+                this.tarefa = new Tarefa(value.titulo, value.prioridade, value.dataCriacao);
             }
             get
             {
@@ -32,8 +34,15 @@
         {
             string titulo = txtTitulo.Text;
             string prioridade = (string)cmbPrioridade.SelectedItem;
-            DateTime dataCriacao = dateTimeCriacao.Value;
-
+            DateTime dataCriacao;
+            if (dateTimeCriacao.Enabled)
+            {
+                dataCriacao = dateTimeCriacao.Value;
+            }
+            else
+            {
+                dataCriacao = tarefa.dataCriacao;
+            }
             this.tarefa = new Tarefa(titulo, prioridade, dataCriacao);
 
             if (txtId.Text != "0")

@@ -150,6 +150,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "TelaTarefaForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de Tarefa";
             ResumeLayout(false);
             PerformLayout();

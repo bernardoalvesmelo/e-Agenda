@@ -56,7 +56,7 @@ namespace e_Agenda.WinApp.ModuloTarefa
             string[] prioridades = { "Baixa", "Normal", "Alta" };
             int x = Array.IndexOf(prioridades, prioridadeX);
             int y = Array.IndexOf(prioridades,prioridadeY);
-            return x.CompareTo(y);
+            return y.CompareTo(x);
         }
 
         public void Editar(Tarefa tarefa)

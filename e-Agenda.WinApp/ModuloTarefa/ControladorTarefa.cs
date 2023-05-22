@@ -92,6 +92,16 @@ namespace e_Agenda.WinApp.ModuloTarefa
                 return;
             }
 
+            if (tarefa.dataConclusao != new DateTime())
+            {
+                MessageBox.Show($"A tarefa já foi concluída!",
+                    "Conclusão de Tarefas",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
             TelaTarefaListaForm telaTarefa = new TelaTarefaListaForm();
             telaTarefa.ListaItens = tarefa.itens;
             telaTarefa.CarregarItens();
@@ -109,16 +119,6 @@ namespace e_Agenda.WinApp.ModuloTarefa
         public override void Filtrar()
         {
             Tarefa tarefa = listagemTarefa.ObterTarefaSelecionada();
-
-            if (tarefa == null)
-            {
-                MessageBox.Show($"Selecione uma tarefa primeiro!",
-                    "Adição de Itens",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Exclamation);
-
-                return;
-            }
 
             TelaTarefaFiltroForm telaTarefa = new TelaTarefaFiltroForm();
 
@@ -163,16 +163,6 @@ namespace e_Agenda.WinApp.ModuloTarefa
             if (tarefa.itens.Count == 0)
             {
                 MessageBox.Show($"A tarefa não possui itens!",
-                    "Conclusão de Tarefas",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Exclamation);
-
-                return;
-            }
-
-            if (tarefa.dataConclusao != new DateTime())
-            {
-                MessageBox.Show($"A tarefa já foi concluída!",
                     "Conclusão de Tarefas",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);
