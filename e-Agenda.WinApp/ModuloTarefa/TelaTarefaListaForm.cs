@@ -1,4 +1,6 @@
-﻿namespace e_Agenda.WinApp.ModuloTarefa
+﻿using System.Windows.Forms;
+
+namespace e_Agenda.WinApp.ModuloTarefa
 {
     public partial class TelaTarefaListaForm : Form
     {
@@ -29,6 +31,13 @@
             string descricao = txtDescricao.Text;
             bool completado = false;
             this.item = new Item(descricao, completado);
+
+            string[] erros = item.Validar();
+            if (erros.Length > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
+                DialogResult = DialogResult.None;
+            }
         }
     }
 }

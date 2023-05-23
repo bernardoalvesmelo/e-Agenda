@@ -1,4 +1,6 @@
-﻿namespace e_Agenda.WinApp.ModuloTarefa
+﻿using e_Agenda.WinApp.ModuloCompromisso;
+
+namespace e_Agenda.WinApp.ModuloTarefa
 {
     public partial class TelaTarefaCompletadoForm : Form
     {
@@ -6,7 +8,21 @@
         public Item Item { get { return item; } }
 
         private List<Item> itens;
-        public List<Item> ListaItens { set { itens = value; } }
+
+        private Tarefa tarefa;
+
+        public Tarefa Tarefa
+        {
+            set
+            {
+                this.itens = value.itens;
+                this.tarefa = new Tarefa(value.titulo, value.prioridade, value.dataCriacao);
+            }
+            get
+            {
+                return this.tarefa;
+            }
+        }
 
         public DateTime DataConclusao { 
             get 
@@ -46,6 +62,15 @@
             if(itens.Count > 0)
             {
                 item = itens.Find(i => i.descricao == cmbItens.SelectedItem);
+            }
+
+            tarefa.dataConclusao = dateTimeConclusao.Enabled ?
+               dateTimeConclusao.Value : new DateTime();
+            string[] erros = tarefa.Validar();
+            if (erros.Length > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
+                DialogResult = DialogResult.None;
             }
         }
     }

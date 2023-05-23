@@ -42,10 +42,7 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            statusStrip1 = new StatusStrip();
-            lbErros = new ToolStripStatusLabel();
             panInputs = new Panel();
-            statusStrip1.SuspendLayout();
             panInputs.SuspendLayout();
             SuspendLayout();
             // 
@@ -53,8 +50,7 @@
             // 
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Enabled = false;
-            btnGravar.Location = new Point(329, 173);
+            btnGravar.Location = new Point(349, 185);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 41);
             btnGravar.TabIndex = 0;
@@ -66,7 +62,7 @@
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(410, 173);
+            btnCancelar.Location = new Point(430, 185);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 41);
             btnCancelar.TabIndex = 1;
@@ -171,21 +167,6 @@
             label6.TabIndex = 13;
             label6.Text = "Cargo:";
             // 
-            // statusStrip1
-            // 
-            statusStrip1.Items.AddRange(new ToolStripItem[] { lbErros });
-            statusStrip1.Location = new Point(0, 239);
-            statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(497, 22);
-            statusStrip1.TabIndex = 14;
-            statusStrip1.Text = "statusStrip1";
-            // 
-            // lbErros
-            // 
-            lbErros.Name = "lbErros";
-            lbErros.Size = new Size(116, 17);
-            lbErros.Text = "Preencha os campos";
-            // 
             // panInputs
             // 
             panInputs.Controls.Add(label6);
@@ -207,9 +188,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(497, 261);
+            ClientSize = new Size(517, 238);
             Controls.Add(panInputs);
-            Controls.Add(statusStrip1);
             Controls.Add(txtId);
             Controls.Add(label1);
             Controls.Add(btnCancelar);
@@ -221,8 +201,6 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de Contatos";
-            statusStrip1.ResumeLayout(false);
-            statusStrip1.PerformLayout();
             panInputs.ResumeLayout(false);
             panInputs.PerformLayout();
             ResumeLayout(false);
@@ -245,8 +223,6 @@
         private Label label4;
         private Label label5;
         private Label label6;
-        private StatusStrip statusStrip1;
-        private ToolStripStatusLabel lbErros;
         private Panel panInputs;
     }
 }

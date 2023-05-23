@@ -12,9 +12,27 @@ namespace e_Agenda.WinApp
         private RepositorioCompromisso repositorioCompromisso = new RepositorioCompromisso();
         private RepositorioTarefa repositorioTarefa = new RepositorioTarefa();
 
+        private static TelaPrincipalForm telaPrincipal;
+
         public TelaPrincipalForm()
         {
             InitializeComponent();
+            telaPrincipal = this;
+        }
+
+        public void AtualizarRodape(string mensagem)
+        {
+            labelRodape.Text = mensagem;
+        }
+        public static TelaPrincipalForm Instancia
+        {
+            get
+            {
+                if (telaPrincipal == null)
+                    telaPrincipal = new TelaPrincipalForm();
+
+                return telaPrincipal;
+            }
         }
 
         private void contatosMenuItem_Click(object sender, EventArgs e)

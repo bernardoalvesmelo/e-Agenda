@@ -171,7 +171,7 @@ namespace e_Agenda.WinApp.ModuloTarefa
             }
 
             TelaTarefaCompletadoForm telaTarefa = new TelaTarefaCompletadoForm();
-            telaTarefa.ListaItens = tarefa.itens.FindAll(t => !t.completado);
+            telaTarefa.Tarefa = tarefa;
             telaTarefa.CarregarItens();
 
             DialogResult opcaoEscolhida = telaTarefa.ShowDialog();

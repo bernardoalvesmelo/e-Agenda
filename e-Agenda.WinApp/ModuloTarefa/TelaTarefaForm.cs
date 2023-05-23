@@ -47,6 +47,13 @@
 
             if (txtId.Text != "0")
                 this.tarefa.id = Convert.ToInt32(txtId.Text);
+
+            string[] erros = tarefa.Validar();
+            if (erros.Length > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
+                DialogResult = DialogResult.None;
+            }
         }
     }
 }

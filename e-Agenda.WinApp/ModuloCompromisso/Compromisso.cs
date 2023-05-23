@@ -23,6 +23,24 @@ namespace e_Agenda.WinApp.ModuloCompromisso
             this.contatoCompromisso = contatoCompromisso;
         }
 
+        public override string[] Validar()
+        {
+            List<string> erros = new List<string>();
+            if (assunto.Trim() == "")
+            {
+                erros.Add("Assunto não pode ser vazio");
+            }
+            if (local.Trim() == "")
+            {
+                erros.Add("Local não pode ser vazio");
+            }
+            if(horaInicio > horaTermino)
+            {
+                erros.Add("Hora de início não pode ser maior que hora de término");
+            }
+            return erros.ToArray();
+        }
+
         public override string ToString()
         {
             string contato = contatoCompromisso == null ?

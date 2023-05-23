@@ -1,6 +1,8 @@
-﻿namespace e_Agenda.WinApp.ModuloTarefa
+﻿using e_Agenda.WinApp.Compartilhado;
+
+namespace e_Agenda.WinApp.ModuloTarefa
 {
-    public class Tarefa
+    public class Tarefa: EntidadeBase
     {
         public int id;
         public string titulo;
@@ -24,6 +26,25 @@
             this.prioridade = prioridade;
             this.dataCriacao = dataCriacao;
             this.itens = new List<Item>();
+        }
+
+        public override string[] Validar()
+        {
+            List<string> erros = new List<string>();
+            if (titulo.Trim() == "")
+            {
+                erros.Add("Título não pode ser vazio");
+            }
+            string[] prioridades = { "Baixa", "Normal", "Alta" };
+            if (!prioridades.Contains(prioridade))
+            {
+                erros.Add("Prioridade não definida");
+            }
+            if(dataConclusao != new DateTime() && dataCriacao > dataConclusao)
+            {
+                erros.Add("Data de conlusão não pode ser menor que data de criação");
+            }
+            return erros.ToArray();
         }
 
         public override string ToString()
