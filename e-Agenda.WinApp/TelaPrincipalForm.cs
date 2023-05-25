@@ -2,6 +2,7 @@ using e_Agenda.WinApp.Compartilhado;
 using e_Agenda.WinApp.ModuloContato;
 using e_Agenda.WinApp.ModuloCompromisso;
 using e_Agenda.WinApp.ModuloTarefa;
+using e_Agenda.WinApp.ModuloCategoria;
 
 namespace e_Agenda.WinApp
 {
@@ -11,6 +12,7 @@ namespace e_Agenda.WinApp
         private RepositorioContato repositorioContato = new RepositorioContato();
         private RepositorioCompromisso repositorioCompromisso = new RepositorioCompromisso();
         private RepositorioTarefa repositorioTarefa = new RepositorioTarefa();
+        private RepositorioCategoria repositorioCategoria = new RepositorioCategoria();
 
         private static TelaPrincipalForm telaPrincipal;
 
@@ -52,6 +54,13 @@ namespace e_Agenda.WinApp
         private void tarefasMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorTarefa(repositorioTarefa);
+
+            ConfigurarTelaPrincipal(controlador);
+        }
+
+        private void categoriasMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorCategoria(repositorioCategoria);
 
             ConfigurarTelaPrincipal(controlador);
         }
