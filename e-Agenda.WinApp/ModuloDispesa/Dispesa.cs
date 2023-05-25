@@ -12,10 +12,19 @@ namespace e_Agenda.WinApp.ModuloDispesa
 
         public List<Categoria> categorias;
 
+        public Dispesa(string descricao, decimal valor, DateTime data, FormasPagamento formaPagamento)
+        {
+            this.descricao = descricao;
+            this.valor = valor;
+            this.data = data;
+            this.formaPagamento = formaPagamento;
+            this.categorias = new List<Categoria>();
+        }
 
         public override string ToString()
         {
-            return "Id: " + id + ", Descrição: " + descricao;
+            return "Id: " + id + ", Descrição: " + descricao + ", Valor:" + valor + 
+                ", Data: " + data.Date + ", Forma de Pagamento: " + formaPagamento;
         }
 
         public override string[] Validar()
