@@ -1,17 +1,17 @@
 ﻿using e_Agenda.WinApp.Compartilhado;
-using e_Agenda.WinApp.ModuloDispesa;
+using e_Agenda.WinApp.ModuloDespesa;
 
 namespace e_Agenda.WinApp.ModuloCategoria
 {
     public class Categoria : EntidadeBase
     {
         public string titulo;
-        public List<Dispesa> dispesas;
+        public List<Despesa> despesas;
 
         public Categoria(string titulo)
         {
             this.titulo = titulo;
-            this.dispesas = new List<Dispesa>();
+            this.despesas = new List<Despesa>();
         }
 
         public override string ToString()

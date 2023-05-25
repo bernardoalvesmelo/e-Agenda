@@ -1,6 +1,6 @@
-﻿namespace e_Agenda.WinApp.ModuloDispesa
+﻿namespace e_Agenda.WinApp.ModuloDespesa
 {
-    partial class ListagemDispesaControl
+    partial class ListagemDespesaControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listDispesas = new ListBox();
+            listDespesas = new ListBox();
             SuspendLayout();
             // 
             // listDispesas
             // 
-            listDispesas.Dock = DockStyle.Fill;
-            listDispesas.FormattingEnabled = true;
-            listDispesas.ItemHeight = 15;
-            listDispesas.Location = new Point(0, 0);
-            listDispesas.Name = "listDispesas";
-            listDispesas.Size = new Size(150, 150);
-            listDispesas.TabIndex = 0;
+            listDespesas.Dock = DockStyle.Fill;
+            listDespesas.FormattingEnabled = true;
+            listDespesas.ItemHeight = 15;
+            listDespesas.Location = new Point(0, 0);
+            listDespesas.Name = "listDispesas";
+            listDespesas.Size = new Size(150, 150);
+            listDespesas.TabIndex = 0;
             // 
             // TelaDispesaControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(listDispesas);
+            Controls.Add(listDespesas);
             Name = "TelaDispesaControl";
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ListBox listDispesas;
+        private ListBox listDespesas;
     }
 }

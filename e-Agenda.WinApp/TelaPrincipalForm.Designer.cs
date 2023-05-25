@@ -186,6 +186,7 @@
             // btnVisualizar
             // 
             btnVisualizar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnVisualizar.Enabled = false;
             btnVisualizar.Image = Properties.Resources.apps_FILL0_wght400_GRAD0_opsz24;
             btnVisualizar.ImageScaling = ToolStripItemImageScaling.None;
             btnVisualizar.ImageTransparentColor = Color.Magenta;

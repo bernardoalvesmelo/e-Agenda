@@ -18,17 +18,21 @@ namespace e_Agenda.WinApp.ModuloCategoria
 
         public override string ToolTipExcluir { get { return "Excluir Categoria existente"; } }
 
-        public override bool InserirAbilitado { get { return true; } }
+        public override string ToolTipVisualizar { get { return "Visualizar Despesas correspondentes"; } }
 
-        public override bool EditarAbilitado { get { return true; } }
+        public override bool InserirHabilitado { get { return true; } }
 
-        public override bool ExcluirAbilitado { get { return true; } }
+        public override bool EditarHabilitado { get { return true; } }
 
-        public override bool FiltrarAbilitado { get { return false; } }
+        public override bool ExcluirHabilitado { get { return true; } }
 
-        public override bool ConcluirAbilitado { get { return false; } }
+        public override bool FiltrarHabilitado { get { return false; } }
 
-        public override bool AdicionarAbilitado { get { return false; } }
+        public override bool ConcluirHabilitado { get { return false; } }
+
+        public override bool AdicionarHabilitado { get { return false; } }
+
+        public override bool VisualizarHabilitado { get { return true; } }
         public override void Inserir()
         {
             TelaCategoriaForm telaCategoria = new TelaCategoriaForm();
@@ -59,7 +63,7 @@ namespace e_Agenda.WinApp.ModuloCategoria
                 return;
             }
 
-            TelaCategoriaVizualisarForm telaCategoria = new TelaCategoriaVizualisarForm(categoria);
+            TelaCategoriaVisualizarForm telaCategoria = new TelaCategoriaVisualizarForm(categoria);
 
             telaCategoria.ShowDialog();
           

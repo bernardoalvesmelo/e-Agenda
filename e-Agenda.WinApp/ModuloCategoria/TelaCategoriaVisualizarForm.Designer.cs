@@ -1,6 +1,6 @@
 ﻿namespace e_Agenda.WinApp.ModuloCategoria
 {
-    partial class TelaCategoriaVizualisarForm
+    partial class TelaCategoriaVisualizarForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             lbTitulo = new Label();
             txtTitulo = new TextBox();
-            listDispesas = new ListBox();
+            listDespesas = new ListBox();
             btnFechar = new Button();
             SuspendLayout();
             // 
@@ -51,14 +51,14 @@
             txtTitulo.Size = new Size(200, 23);
             txtTitulo.TabIndex = 20;
             // 
-            // listDispesas
+            // listDespesas
             // 
-            listDispesas.FormattingEnabled = true;
-            listDispesas.ItemHeight = 15;
-            listDispesas.Location = new Point(39, 84);
-            listDispesas.Name = "listDispesas";
-            listDispesas.Size = new Size(341, 94);
-            listDispesas.TabIndex = 6;
+            listDespesas.FormattingEnabled = true;
+            listDespesas.ItemHeight = 15;
+            listDespesas.Location = new Point(39, 84);
+            listDespesas.Name = "listDespesas";
+            listDespesas.Size = new Size(341, 94);
+            listDespesas.TabIndex = 6;
             // 
             // btnFechar
             // 
@@ -76,7 +76,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(414, 248);
-            Controls.Add(listDispesas);
+            Controls.Add(listDespesas);
             Controls.Add(lbTitulo);
             Controls.Add(txtTitulo);
             Controls.Add(btnFechar);
@@ -95,7 +95,7 @@
 
         private Label lbTitulo;
         private TextBox txtTitulo;
-        private ListBox listDispesas;
+        private ListBox listDespesas;
         private Button btnFechar;
     }
 }

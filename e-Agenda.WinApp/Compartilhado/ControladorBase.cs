@@ -6,25 +6,29 @@
 
         public abstract string ToolTipEditar { get; }
 
+        public abstract string ToolTipExcluir { get; }
+
         public virtual string ToolTipFiltrar { get { return "Filtro indisponível"; } }
 
         public virtual string ToolTipAdicionar { get { return "Adição indisponível"; } }
 
         public virtual string ToolTipConcluir { get { return "Conclusão indisponível"; } }
 
-        public abstract string ToolTipExcluir { get; }
+        public virtual string ToolTipVisualizar { get { return "Visualização indisponível"; } }
 
-        public abstract bool InserirAbilitado { get; }
+        public virtual bool InserirHabilitado { get { return true; } }
 
-        public abstract bool EditarAbilitado { get; }
+        public virtual bool EditarHabilitado { get { return true; } }
 
-        public abstract bool ExcluirAbilitado { get; }
+        public virtual bool ExcluirHabilitado { get { return true; } }
 
-        public abstract bool FiltrarAbilitado { get; }
+        public virtual bool FiltrarHabilitado { get { return false; } }
 
-        public abstract bool ConcluirAbilitado { get; }
+        public virtual bool ConcluirHabilitado { get { return false; } }
 
-        public abstract bool AdicionarAbilitado { get; }
+        public virtual bool AdicionarHabilitado { get { return false; } }
+
+        public virtual bool VisualizarHabilitado { get { return false; } }
 
         public abstract void Inserir();
 

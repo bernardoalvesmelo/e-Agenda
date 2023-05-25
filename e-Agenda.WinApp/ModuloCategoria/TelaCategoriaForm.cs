@@ -1,6 +1,4 @@
-﻿using e_Agenda.WinApp.ModuloContato;
-
-namespace e_Agenda.WinApp.ModuloCategoria
+﻿namespace e_Agenda.WinApp.ModuloCategoria
 {
     public partial class TelaCategoriaForm : Form
     {

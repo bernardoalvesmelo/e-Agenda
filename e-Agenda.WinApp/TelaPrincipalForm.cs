@@ -3,7 +3,7 @@ using e_Agenda.WinApp.ModuloContato;
 using e_Agenda.WinApp.ModuloCompromisso;
 using e_Agenda.WinApp.ModuloTarefa;
 using e_Agenda.WinApp.ModuloCategoria;
-using e_Agenda.WinApp.ModuloDispesa;
+using e_Agenda.WinApp.ModuloDespesa;
 
 namespace e_Agenda.WinApp
 {
@@ -14,7 +14,7 @@ namespace e_Agenda.WinApp
         private RepositorioCompromisso repositorioCompromisso = new RepositorioCompromisso();
         private RepositorioTarefa repositorioTarefa = new RepositorioTarefa();
         private RepositorioCategoria repositorioCategoria = new RepositorioCategoria();
-        private RepositorioDispesa repositorioDispesa = new RepositorioDispesa();
+        private RepositorioDespesa repositorioDespesa = new RepositorioDespesa();
 
         private static TelaPrincipalForm telaPrincipal;
 
@@ -69,7 +69,7 @@ namespace e_Agenda.WinApp
 
         private void despesasMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorDispesa(repositorioDispesa, repositorioCategoria);
+            controlador = new ControladorDespesa(repositorioDespesa, repositorioCategoria);
             ConfigurarTelaPrincipal(controlador);
         }
 
@@ -103,16 +103,18 @@ namespace e_Agenda.WinApp
             btnFiltrar.ToolTipText = controlador.ToolTipFiltrar;
             btnAdicionar.ToolTipText = controlador.ToolTipAdicionar;
             btnConcluir.ToolTipText = controlador.ToolTipConcluir;
+            btnVisualizar.ToolTipText = controlador.ToolTipVisualizar;
         }
 
         private void ConfigurarToolBotoes(ControladorBase controlador)
         {
-            btnInserir.Enabled = controlador.InserirAbilitado;
-            btnEditar.Enabled = controlador.EditarAbilitado;
-            btnExcluir.Enabled = controlador.ExcluirAbilitado;
-            btnFiltrar.Enabled = controlador.FiltrarAbilitado;
-            btnAdicionar.Enabled = controlador.AdicionarAbilitado;
-            btnConcluir.Enabled = controlador.ConcluirAbilitado;
+            btnInserir.Enabled = controlador.InserirHabilitado;
+            btnEditar.Enabled = controlador.EditarHabilitado;
+            btnExcluir.Enabled = controlador.ExcluirHabilitado;
+            btnFiltrar.Enabled = controlador.FiltrarHabilitado;
+            btnAdicionar.Enabled = controlador.AdicionarHabilitado;
+            btnConcluir.Enabled = controlador.ConcluirHabilitado;
+            btnVisualizar.Enabled = controlador.VisualizarHabilitado;
         }
 
         private void btnInserir_Click(object sender, EventArgs e)

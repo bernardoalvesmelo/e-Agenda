@@ -14,6 +14,7 @@
             {
                 listCategorias.Items.Add(item);
             }
+
         }
 
         public Categoria ObterCategoriaSelecionada()

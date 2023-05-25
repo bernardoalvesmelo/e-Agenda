@@ -1,17 +1,12 @@
 ﻿using e_Agenda.WinApp.ModuloCategoria;
-using e_Agenda.WinApp.ModuloTarefa;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-namespace e_Agenda.WinApp.ModuloDispesa
+namespace e_Agenda.WinApp.ModuloDespesa
 {
-    public partial class TelaDispesaForm : Form
+    public partial class TelaDespesaForm : Form
     {
-        private Dispesa dispesa;
+        private Despesa despesa;
         private List<Categoria> categorias;
-        public TelaDispesaForm(List<Categoria> categorias)
+        public TelaDespesaForm(List<Categoria> categorias)
         {
             InitializeComponent();
             this.categorias = categorias;
@@ -27,7 +22,7 @@ namespace e_Agenda.WinApp.ModuloDispesa
             int i = 0;
             foreach (Categoria item in categorias)
             {
-                if (dispesa.categorias.Contains(item))
+                if (despesa.categorias.Contains(item))
                     listCategorias.SetItemChecked(i, true);
                 i++;
             }
@@ -35,16 +30,16 @@ namespace e_Agenda.WinApp.ModuloDispesa
 
         private void CarregarPagamentos()
         {
-            FormasPagamento[] pagamentos = Enum.GetValues<FormasPagamento>();
+            FormasPagamentoEnum[] pagamentos = Enum.GetValues<FormasPagamentoEnum>();
 
-            foreach (FormasPagamento pagamento in pagamentos)
+            foreach (FormasPagamentoEnum pagamento in pagamentos)
             {
                 cmbPagamento.Items.Add(pagamento);
             }
             cmbPagamento.SelectedIndex = 0;
         }
 
-        public Dispesa Dispesa
+        public Despesa Despesa
         {
             set
             {
@@ -53,12 +48,12 @@ namespace e_Agenda.WinApp.ModuloDispesa
                 txtValor.Text = "" + value.valor;
                 txtData.Value = value.data;
                 cmbPagamento.SelectedItem = value.formaPagamento;
-                dispesa = value;
+                despesa = value;
                 AtualizarCategorias();
             }
             get
             {
-                return dispesa;
+                return despesa;
             }
         }
 
@@ -70,18 +65,18 @@ namespace e_Agenda.WinApp.ModuloDispesa
 
             DateTime data = txtData.Value.Date;
 
-            FormasPagamento formaPagamento = (FormasPagamento)cmbPagamento.SelectedItem;
+            FormasPagamentoEnum formaPagamento = (FormasPagamentoEnum)cmbPagamento.SelectedItem;
 
             List<Categoria> categorias = listCategorias
                 .CheckedItems.Cast<Categoria>().ToList();
 
-            dispesa = new Dispesa(descricao, valor, data, formaPagamento);
-            dispesa.categorias = categorias;
+            despesa = new Despesa(descricao, valor, data, formaPagamento);
+            despesa.categorias = categorias;
 
             if (txtId.Text != "0")
-                dispesa.id = Convert.ToInt32(txtId.Text);
+                despesa.id = Convert.ToInt32(txtId.Text);
 
-            string[] erros = dispesa.Validar();
+            string[] erros = despesa.Validar();
             if (erros.Length > 0)
             {
                 TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);

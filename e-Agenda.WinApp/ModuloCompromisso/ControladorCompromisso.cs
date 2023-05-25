@@ -23,17 +23,17 @@ namespace e_Agenda.WinApp.ModuloCompromisso
 
         public  override string ToolTipFiltrar { get { return "Filtrar Compromissos existentes"; } }
 
-        public override bool InserirAbilitado { get {return true;} }
+        public override bool InserirHabilitado { get {return true;} }
 
-        public override bool EditarAbilitado { get { return true; } }
+        public override bool EditarHabilitado { get { return true; } }
 
-        public override bool ExcluirAbilitado { get { return true; } }
+        public override bool ExcluirHabilitado { get { return true; } }
 
-        public override bool FiltrarAbilitado { get { return true; } }
+        public override bool FiltrarHabilitado { get { return true; } }
 
-        public override bool ConcluirAbilitado { get { return false; } }
+        public override bool ConcluirHabilitado { get { return false; } }
 
-        public override bool AdicionarAbilitado { get { return false; } }
+        public override bool AdicionarHabilitado { get { return false; } }
 
         public override void Inserir()
         {

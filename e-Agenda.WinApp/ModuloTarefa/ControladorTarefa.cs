@@ -23,17 +23,17 @@ namespace e_Agenda.WinApp.ModuloTarefa
 
         public override string ToolTipConcluir { get { return "Concluir Item ou Tarefa existente"; } }
 
-        public override bool InserirAbilitado { get { return true; } }
+        public override bool InserirHabilitado { get { return true; } }
 
-        public override bool EditarAbilitado { get { return true; } }
+        public override bool EditarHabilitado { get { return true; } }
 
-        public override bool ExcluirAbilitado { get { return true; } }
+        public override bool ExcluirHabilitado { get { return true; } }
 
-        public override bool FiltrarAbilitado { get { return true; } }
+        public override bool FiltrarHabilitado { get { return true; } }
 
-        public override bool ConcluirAbilitado { get { return true; } }
+        public override bool ConcluirHabilitado { get { return true; } }
 
-        public override bool AdicionarAbilitado { get { return true; } }
+        public override bool AdicionarHabilitado { get { return true; } }
 
         public override void Inserir()
         {

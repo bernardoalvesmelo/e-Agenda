@@ -1,11 +1,11 @@
-﻿using e_Agenda.WinApp.ModuloDispesa;
+﻿using e_Agenda.WinApp.ModuloDespesa;
 
 namespace e_Agenda.WinApp.ModuloCategoria
 {
-    public partial class TelaCategoriaVizualisarForm : Form
+    public partial class TelaCategoriaVisualizarForm : Form
     {
         private Categoria categoria;
-        public TelaCategoriaVizualisarForm(Categoria categoria)
+        public TelaCategoriaVisualizarForm(Categoria categoria)
         {
             InitializeComponent();
             this.categoria = categoria;
@@ -15,9 +15,9 @@ namespace e_Agenda.WinApp.ModuloCategoria
         private void CarregarControls()
         {
             txtTitulo.Text = categoria.titulo;
-            foreach (Dispesa dispesa in categoria.dispesas)
+            foreach (Despesa despesa in categoria.despesas)
             {
-                listDispesas.Items.Add(dispesa);
+                listDespesas.Items.Add(despesa);
             }
         }
     }

@@ -1,6 +1,6 @@
-﻿namespace e_Agenda.WinApp.ModuloDispesa
+﻿namespace e_Agenda.WinApp.ModuloDespesa
 {
-    partial class TelaDispesaForm
+    partial class TelaDespesaForm
     {
         /// <summary>
         /// Required designer variable.
