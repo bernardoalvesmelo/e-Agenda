@@ -19,6 +19,7 @@ namespace e_Agenda.WinApp.ModuloDispesa
             {
                 listCategorias.Items.Add(categoria);
             }
+            CarregarPagamentos();
         }
 
         private void AtualizarCategorias()
@@ -52,6 +53,7 @@ namespace e_Agenda.WinApp.ModuloDispesa
                 txtValor.Text = "" + value.valor;
                 txtData.Value = value.data;
                 cmbPagamento.SelectedItem = value.formaPagamento;
+                dispesa = value;
                 AtualizarCategorias();
             }
             get
@@ -68,10 +70,13 @@ namespace e_Agenda.WinApp.ModuloDispesa
 
             DateTime data = txtData.Value.Date;
 
-            FormasPagamento formasPagamento = (FormasPagamento)cmbPagamento.SelectedItem;
+            FormasPagamento formaPagamento = (FormasPagamento)cmbPagamento.SelectedItem;
 
             List<Categoria> categorias = listCategorias
                 .CheckedItems.Cast<Categoria>().ToList();
+
+            dispesa = new Dispesa(descricao, valor, data, formaPagamento);
+            dispesa.categorias = categorias;
 
             if (txtId.Text != "0")
                 dispesa.id = Convert.ToInt32(txtId.Text);

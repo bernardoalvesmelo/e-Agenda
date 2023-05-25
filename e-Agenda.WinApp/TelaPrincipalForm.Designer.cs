@@ -43,6 +43,7 @@
             btnInserir = new ToolStripButton();
             btnEditar = new ToolStripButton();
             btnAdicionar = new ToolStripButton();
+            btnVisualizar = new ToolStripButton();
             btnConcluir = new ToolStripButton();
             btnFiltrar = new ToolStripButton();
             btnExcluir = new ToolStripButton();
@@ -73,21 +74,21 @@
             // contatosMenuItem
             // 
             contatosMenuItem.Name = "contatosMenuItem";
-            contatosMenuItem.Size = new Size(180, 22);
+            contatosMenuItem.Size = new Size(154, 22);
             contatosMenuItem.Text = "Contatos";
             contatosMenuItem.Click += contatosMenuItem_Click;
             // 
             // compromissosMenuItem
             // 
             compromissosMenuItem.Name = "compromissosMenuItem";
-            compromissosMenuItem.Size = new Size(180, 22);
+            compromissosMenuItem.Size = new Size(154, 22);
             compromissosMenuItem.Text = "Compromissos";
             compromissosMenuItem.Click += compromissosMenuItem_Click;
             // 
             // tarefasMenuItem
             // 
             tarefasMenuItem.Name = "tarefasMenuItem";
-            tarefasMenuItem.Size = new Size(180, 22);
+            tarefasMenuItem.Size = new Size(154, 22);
             tarefasMenuItem.Text = "Tarefas";
             tarefasMenuItem.Click += tarefasMenuItem_Click;
             // 
@@ -95,19 +96,20 @@
             // 
             despesasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { despesasMenuItem, categoriasMenuItem });
             despesasToolStripMenuItem.Name = "despesasToolStripMenuItem";
-            despesasToolStripMenuItem.Size = new Size(180, 22);
+            despesasToolStripMenuItem.Size = new Size(154, 22);
             despesasToolStripMenuItem.Text = "Despesas";
             // 
             // despesasMenuItem
             // 
             despesasMenuItem.Name = "despesasMenuItem";
-            despesasMenuItem.Size = new Size(180, 22);
+            despesasMenuItem.Size = new Size(130, 22);
             despesasMenuItem.Text = "Despesas";
+            despesasMenuItem.Click += despesasMenuItem_Click;
             // 
             // categoriasMenuItem
             // 
             categoriasMenuItem.Name = "categoriasMenuItem";
-            categoriasMenuItem.Size = new Size(180, 22);
+            categoriasMenuItem.Size = new Size(130, 22);
             categoriasMenuItem.Text = "Categorias";
             categoriasMenuItem.Click += categoriasMenuItem_Click;
             // 
@@ -134,7 +136,7 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnAdicionar, btnConcluir, btnFiltrar, btnExcluir, toolStripSeparator1, labelTipoCadastro });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnAdicionar, btnVisualizar, btnConcluir, btnFiltrar, btnExcluir, toolStripSeparator1, labelTipoCadastro });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(800, 45);
@@ -180,6 +182,18 @@
             btnAdicionar.Text = "Exibição alternativa";
             btnAdicionar.ToolTipText = "Adicionar Item";
             btnAdicionar.Click += btnAdicionar_Click;
+            // 
+            // btnVisualizar
+            // 
+            btnVisualizar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnVisualizar.Image = Properties.Resources.apps_FILL0_wght400_GRAD0_opsz24;
+            btnVisualizar.ImageScaling = ToolStripItemImageScaling.None;
+            btnVisualizar.ImageTransparentColor = Color.Magenta;
+            btnVisualizar.Name = "btnVisualizar";
+            btnVisualizar.Padding = new Padding(7);
+            btnVisualizar.Size = new Size(42, 42);
+            btnVisualizar.Text = "Concluir";
+            btnVisualizar.Click += btnVisualizar_Click;
             // 
             // btnConcluir
             // 
@@ -287,5 +301,6 @@
         private ToolStripButton btnFiltrar;
         private ToolStripButton btnAdicionar;
         private ToolStripButton btnConcluir;
+        private ToolStripButton btnVisualizar;
     }
 }

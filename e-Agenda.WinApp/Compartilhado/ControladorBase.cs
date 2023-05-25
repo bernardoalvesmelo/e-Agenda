@@ -46,6 +46,11 @@
         {
 
         }
+
+        public virtual void Visualizar()
+        {
+
+        }
         
         public abstract UserControl ObterListagem();
 

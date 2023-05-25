@@ -3,6 +3,7 @@ using e_Agenda.WinApp.ModuloContato;
 using e_Agenda.WinApp.ModuloCompromisso;
 using e_Agenda.WinApp.ModuloTarefa;
 using e_Agenda.WinApp.ModuloCategoria;
+using e_Agenda.WinApp.ModuloDispesa;
 
 namespace e_Agenda.WinApp
 {
@@ -13,6 +14,7 @@ namespace e_Agenda.WinApp
         private RepositorioCompromisso repositorioCompromisso = new RepositorioCompromisso();
         private RepositorioTarefa repositorioTarefa = new RepositorioTarefa();
         private RepositorioCategoria repositorioCategoria = new RepositorioCategoria();
+        private RepositorioDispesa repositorioDispesa = new RepositorioDispesa();
 
         private static TelaPrincipalForm telaPrincipal;
 
@@ -62,6 +64,12 @@ namespace e_Agenda.WinApp
         {
             controlador = new ControladorCategoria(repositorioCategoria);
 
+            ConfigurarTelaPrincipal(controlador);
+        }
+
+        private void despesasMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorDispesa(repositorioDispesa, repositorioCategoria);
             ConfigurarTelaPrincipal(controlador);
         }
 
@@ -135,6 +143,11 @@ namespace e_Agenda.WinApp
         private void btnConcluir_Click(object sender, EventArgs e)
         {
             controlador.Concluir();
+        }
+
+        private void btnVisualizar_Click(object sender, EventArgs e)
+        {
+            controlador.Visualizar();
         }
     }
 }

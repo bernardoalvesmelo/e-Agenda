@@ -1,6 +1,6 @@
 ﻿namespace e_Agenda.WinApp.ModuloDispesa
 {
-    partial class TelaDispesaControl
+    partial class ListagemDispesaControl
     {
         /// <summary> 
         /// Required designer variable.

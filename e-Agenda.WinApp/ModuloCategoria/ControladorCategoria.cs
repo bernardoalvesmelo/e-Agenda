@@ -45,6 +45,26 @@ namespace e_Agenda.WinApp.ModuloCategoria
             }
         }
 
+        public override void Visualizar()
+        {
+            Categoria categoria = listagemCategoria.ObterCategoriaSelecionada();
+
+            if (categoria == null)
+            {
+                MessageBox.Show($"Selecione uma categoria primeiro!",
+                    "Visualização de Dispesas",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            TelaCategoriaVizualisarForm telaCategoria = new TelaCategoriaVizualisarForm(categoria);
+
+            telaCategoria.ShowDialog();
+          
+        }
+
         public override void Editar()
         {
             Categoria categoria = listagemCategoria.ObterCategoriaSelecionada();

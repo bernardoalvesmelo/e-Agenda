@@ -2,9 +2,9 @@
 
 namespace e_Agenda.WinApp.ModuloDispesa
 {
-    public partial class TelaDispesaControl : UserControl
+    public partial class ListagemDispesaControl : UserControl
     {
-        public TelaDispesaControl()
+        public ListagemDispesaControl()
         {
             InitializeComponent();
         }

@@ -15,7 +15,6 @@ namespace e_Agenda.WinApp.ModuloDispesa
             {
                 categoria.dispesas.Add(dispesa);
             }
-            dispesa.categorias = dispesa.categorias;
             dispesas.Add(dispesa);
         }
 
