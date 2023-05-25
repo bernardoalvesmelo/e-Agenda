@@ -5,7 +5,7 @@ namespace e_Agenda.WinApp.ModuloCategoria
     public class ControladorCategoria : ControladorBase
     {
         private RepositorioCategoria repositorioCategoria;
-        private ListagemCategoriaControl listagemCategoria;
+        private TabelaCategoriaControl tabelaCategoria;
 
         public ControladorCategoria(RepositorioCategoria repositorioCategoria)
         {
@@ -51,7 +51,7 @@ namespace e_Agenda.WinApp.ModuloCategoria
 
         public override void Visualizar()
         {
-            Categoria categoria = listagemCategoria.ObterCategoriaSelecionada();
+            Categoria categoria = ObterCategoriaSelecionada();
 
             if (categoria == null)
             {
@@ -71,7 +71,7 @@ namespace e_Agenda.WinApp.ModuloCategoria
 
         public override void Editar()
         {
-            Categoria categoria = listagemCategoria.ObterCategoriaSelecionada();
+            Categoria categoria = ObterCategoriaSelecionada();
 
             if (categoria == null)
             {
@@ -98,7 +98,7 @@ namespace e_Agenda.WinApp.ModuloCategoria
 
         public override void Excluir()
         {            
-            Categoria categoria = listagemCategoria.ObterCategoriaSelecionada();
+            Categoria categoria = ObterCategoriaSelecionada();
 
             if (categoria == null)
             {
@@ -126,24 +126,29 @@ namespace e_Agenda.WinApp.ModuloCategoria
         {
             List<Categoria> categorias = repositorioCategoria.SelecionarTodos();
 
-            listagemCategoria.AtualizarRegistros(categorias);
+            tabelaCategoria.AtualizarRegistros(categorias);
+        }
+
+        public Categoria ObterCategoriaSelecionada()
+        {
+            int id = tabelaCategoria.ObterIdSelecionado();
+
+            return repositorioCategoria.SelecionarPorId(id);
         }
 
         public override UserControl ObterListagem()
         {
-            if (listagemCategoria == null)
-                listagemCategoria = new ListagemCategoriaControl();
+            if (tabelaCategoria == null)
+                tabelaCategoria = new TabelaCategoriaControl();
 
             CarregarCategorias();
 
-            return listagemCategoria;
+            return tabelaCategoria;
         }
 
         public override string ObterTipoCadastro()
         {
             return "Cadastro de Categorias";            
         }
-
-        
     }
 }

@@ -24,7 +24,7 @@
             categoriaSelecionada.titulo = categoria.titulo;    
         }
 
-        private Categoria SelecionarPorId(int id)
+        public Categoria SelecionarPorId(int id)
         {
             return categorias.FirstOrDefault(x => x.id == id);
         }
