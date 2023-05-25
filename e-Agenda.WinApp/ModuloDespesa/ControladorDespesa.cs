@@ -35,8 +35,19 @@ namespace e_Agenda.WinApp.ModuloDespesa
         public override bool AdicionarHabilitado { get { return false; } }
         public override void Inserir()
         {
-            TelaDespesaForm telaDespesa = new TelaDespesaForm(
-                repositorioCategoria.SelecionarTodos());
+            List<Categoria> categorias = repositorioCategoria.SelecionarTodos();
+
+            if (categorias.Count == 0)
+            {
+                MessageBox.Show($"Cadastre uma categoria primeiro!",
+                    "Criação de Despesas",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            TelaDespesaForm telaDespesa = new TelaDespesaForm(categorias);
 
             DialogResult opcaoEscolhida = telaDespesa.ShowDialog();
 
@@ -63,8 +74,20 @@ namespace e_Agenda.WinApp.ModuloDespesa
 
                 return;
             }
-            TelaDespesaForm telaDespesa = new TelaDespesaForm(
-                            repositorioCategoria.SelecionarTodos());
+
+            List<Categoria> categorias = repositorioCategoria.SelecionarTodos();
+
+            if (categorias.Count == 0)
+            {
+                MessageBox.Show($"Cadastre uma categoria primeiro!",
+                    "Edição de Despesas",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            TelaDespesaForm telaDespesa = new TelaDespesaForm(categorias);
             telaDespesa.Despesa = despesa;
 
             DialogResult opcaoEscolhida = telaDespesa.ShowDialog();
