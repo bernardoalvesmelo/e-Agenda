@@ -42,7 +42,7 @@ namespace e_Agenda.WinApp.ModuloDespesa
             despesaSelecionada.categorias = despesa.categorias;
         }
 
-        private Despesa SelecionarPorId(int id)
+        public Despesa SelecionarPorId(int id)
         {
             return despesas.FirstOrDefault(x => x.id == id);
         }

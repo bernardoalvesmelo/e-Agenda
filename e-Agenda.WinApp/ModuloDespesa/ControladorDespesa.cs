@@ -7,7 +7,7 @@ namespace e_Agenda.WinApp.ModuloDespesa
     {
         private RepositorioDespesa repositorioDespesa;
         private RepositorioCategoria repositorioCategoria;
-        private ListagemDespesaControl listagemDespesa;
+        private TabelaDespesaControl tabelaDespesa;
 
         public ControladorDespesa(RepositorioDespesa repositorioDespesa, RepositorioCategoria repositorioCategoria)
         {
@@ -63,7 +63,7 @@ namespace e_Agenda.WinApp.ModuloDespesa
 
         public override void Editar()
         {
-            Despesa despesa = listagemDespesa.ObterDespesaSelecionada();
+            Despesa despesa = ObterDespesaSelecionada();
 
             if (despesa == null)
             {
@@ -102,7 +102,7 @@ namespace e_Agenda.WinApp.ModuloDespesa
 
         public override void Excluir()
         {            
-            Despesa despesa = listagemDespesa.ObterDespesaSelecionada();
+            Despesa despesa = ObterDespesaSelecionada();
 
             if (despesa == null)
             {
@@ -129,24 +129,30 @@ namespace e_Agenda.WinApp.ModuloDespesa
         {
             List<Despesa> despesas = repositorioDespesa.SelecionarTodos();
 
-            listagemDespesa.AtualizarRegistros(despesas);
+            tabelaDespesa.AtualizarRegistros(despesas);
+        }
+
+        public Despesa ObterDespesaSelecionada()
+        {
+            int id = tabelaDespesa.ObterIdSelecionado();
+
+            return repositorioDespesa.SelecionarPorId(id);
         }
 
         public override UserControl ObterListagem()
         {
-            if (listagemDespesa == null)
-                listagemDespesa = new ListagemDespesaControl();
+            if (tabelaDespesa == null)
+                tabelaDespesa = new TabelaDespesaControl();
 
             CarregarDespesas();
 
-            return listagemDespesa;
+            return tabelaDespesa;
         }
 
         public override string ObterTipoCadastro()
         {
             return "Cadastro de Despesas";            
         }
-
         
     }
 }
