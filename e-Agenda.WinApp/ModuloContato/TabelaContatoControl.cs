@@ -62,6 +62,8 @@ namespace e_Agenda.WinApp.ModuloContato
                 grid.Rows.Add(contato.id, contato.nome, contato.telefone, contato.email, 
                     contato.cargo, contato.empresa);
             }
+            TelaPrincipalForm.Instancia.AtualizarRodape(
+                $"Visualizando {contatos.Count} contato(s)");
         }
 
         public int ObterIdSelecionado()

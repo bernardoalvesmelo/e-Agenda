@@ -1,4 +1,5 @@
 ﻿using e_Agenda.WinApp.Compartilhado;
+using e_Agenda.WinApp.ModuloDespesa;
 
 namespace e_Agenda.WinApp.ModuloCategoria
 {
@@ -41,6 +42,8 @@ namespace e_Agenda.WinApp.ModuloCategoria
             {
                 grid.Rows.Add(categoria.id, categoria.titulo);
             }
+            TelaPrincipalForm.Instancia.AtualizarRodape(
+                $"Visualizando {categorias.Count} categoria(s)");
         }
 
         public int ObterIdSelecionado()

@@ -63,6 +63,8 @@ namespace e_Agenda.WinApp.ModuloTarefa
                     tarefa.dataCriacao.ToString("dd/MM/yyyy"), tarefa.DataConclusao, 
                     tarefa.Percentual);
             }
+            TelaPrincipalForm.Instancia.AtualizarRodape(
+              $"Visualizando {tarefas.Count} tarefa(s)");
         }
 
         public int ObterIdSelecionado()

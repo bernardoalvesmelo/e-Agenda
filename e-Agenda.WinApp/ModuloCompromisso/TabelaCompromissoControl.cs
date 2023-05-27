@@ -1,4 +1,5 @@
 ﻿using e_Agenda.WinApp.Compartilhado;
+using e_Agenda.WinApp.ModuloDespesa;
 
 namespace e_Agenda.WinApp.ModuloCompromisso
 {
@@ -70,6 +71,8 @@ namespace e_Agenda.WinApp.ModuloCompromisso
                     compromisso.horaTermino.ToString("HH:mm"), 
                     compromisso.Contato);
             }
+            TelaPrincipalForm.Instancia.AtualizarRodape(
+                $"Visualizando {compromissos.Count} compromisso(s)");
         }
 
         public int ObterIdSelecionado()
