@@ -19,9 +19,17 @@ namespace e_Agenda.WinApp.ModuloTarefa
             } 
         }
 
+        public string DataConclusao
+        {
+            get
+            {
+               return dataConclusao == new DateTime() ? "Não concluído" :
+               dataConclusao.ToString("dd/MM/yyyy");
+            }
+        }
+
         public Tarefa(string titulo, string prioridade, DateTime dataCriacao)
         {
-            this.id = id;
             this.titulo = titulo;
             this.prioridade = prioridade;
             this.dataCriacao = dataCriacao;

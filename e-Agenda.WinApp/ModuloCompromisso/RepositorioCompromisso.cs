@@ -34,7 +34,7 @@
         compromissoSelecionado.contatoCompromisso = compromisso.contatoCompromisso;
         }
 
-        private Compromisso SelecionarPorId(int id)
+        public Compromisso SelecionarPorId(int id)
         {
             return compromissos.FirstOrDefault(x => x.id == id);
         }

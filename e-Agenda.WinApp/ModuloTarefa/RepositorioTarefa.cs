@@ -66,7 +66,7 @@ namespace e_Agenda.WinApp.ModuloTarefa
             tarefaSelecionada.prioridade = tarefa.prioridade;
         }
 
-        private Tarefa SelecionarPorId(int id)
+        public Tarefa SelecionarPorId(int id)
         {
             return tarefas.FirstOrDefault(x => x.id == id);
         }

@@ -28,7 +28,7 @@
             contatoSelecionado.empresa = contato.empresa;                 
         }
 
-        private Contato SelecionarPorId(int id)
+        public Contato SelecionarPorId(int id)
         {
             return contatos.FirstOrDefault(x => x.id == id);
         }

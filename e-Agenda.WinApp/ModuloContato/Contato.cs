@@ -23,7 +23,8 @@ namespace e_Agenda.WinApp.ModuloContato
 
         public override string ToString()
         {
-            return "Id: " + id + ", Nome: " + nome + ", Empresa: " + empresa;
+            return "Id: " + id + ", Nome: " + nome + ", Telefone: " + telefone + 
+                ", Email:" + email + ", Cargo: " + cargo + ", Empresa: " + empresa;
         }
 
         public override string[] Validar()

@@ -5,13 +5,21 @@ namespace e_Agenda.WinApp.ModuloCompromisso
 {
     public class Compromisso : EntidadeBase
     {
-        public int id;
         public string assunto;
         public string local;
         public DateTime data;
         public DateTime horaInicio;
         public DateTime horaTermino;
         public Contato contatoCompromisso;
+
+        public string Contato
+        {
+            get
+            {
+                return contatoCompromisso == null ?
+                "Sem Contato" : contatoCompromisso.nome;
+            }
+        }
 
         public Compromisso(string assunto, string local, DateTime data, DateTime horaInicio, DateTime horaTermino, Contato contatoCompromisso)
         {
