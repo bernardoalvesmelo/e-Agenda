@@ -51,7 +51,7 @@ namespace e_Agenda.WinApp.ModuloDespesa
         {
             foreach (Categoria categoria in despesa.categorias)
             {
-                categoria.despesas.Remove(despesa);
+                categoria.despesas = categoria.despesas.FindAll(d => d.id != despesa.id);
             }
             despesas.Remove(despesa);
         }

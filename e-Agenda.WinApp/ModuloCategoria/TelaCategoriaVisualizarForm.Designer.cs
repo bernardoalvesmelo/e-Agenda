@@ -30,14 +30,17 @@
         {
             lbTitulo = new Label();
             txtTitulo = new TextBox();
-            listDespesas = new ListBox();
             btnFechar = new Button();
+            tabelaDespesa = new ModuloDespesa.TabelaDespesaControl();
+            statusStrip1 = new StatusStrip();
+            lbDespesas = new ToolStripStatusLabel();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // lbTitulo
             // 
             lbTitulo.AutoSize = true;
-            lbTitulo.Location = new Point(52, 33);
+            lbTitulo.Location = new Point(231, 26);
             lbTitulo.Name = "lbTitulo";
             lbTitulo.Size = new Size(40, 15);
             lbTitulo.TabIndex = 21;
@@ -45,48 +48,64 @@
             // 
             // txtTitulo
             // 
-            txtTitulo.Location = new Point(107, 30);
+            txtTitulo.Location = new Point(286, 23);
             txtTitulo.Name = "txtTitulo";
             txtTitulo.ReadOnly = true;
             txtTitulo.Size = new Size(200, 23);
             txtTitulo.TabIndex = 20;
             // 
-            // listDespesas
-            // 
-            listDespesas.FormattingEnabled = true;
-            listDespesas.ItemHeight = 15;
-            listDespesas.Location = new Point(39, 84);
-            listDespesas.Name = "listDespesas";
-            listDespesas.Size = new Size(341, 94);
-            listDespesas.TabIndex = 6;
-            // 
             // btnFechar
             // 
             btnFechar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnFechar.DialogResult = DialogResult.Cancel;
-            btnFechar.Location = new Point(327, 195);
+            btnFechar.Location = new Point(673, 252);
             btnFechar.Name = "btnFechar";
             btnFechar.Size = new Size(75, 41);
             btnFechar.TabIndex = 18;
             btnFechar.Text = "Fechar";
             btnFechar.UseVisualStyleBackColor = true;
             // 
-            // TelaCategoriaVizualisarForm
+            // tabelaDespesa
+            // 
+            tabelaDespesa.Location = new Point(35, 59);
+            tabelaDespesa.Name = "tabelaDespesa";
+            tabelaDespesa.Size = new Size(668, 177);
+            tabelaDespesa.TabIndex = 22;
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.Items.AddRange(new ToolStripItem[] { lbDespesas });
+            statusStrip1.Location = new Point(0, 296);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(760, 22);
+            statusStrip1.TabIndex = 23;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // lbDespesas
+            // 
+            lbDespesas.Name = "lbDespesas";
+            lbDespesas.Size = new Size(124, 17);
+            lbDespesas.Text = "Vizualizando Despesas";
+            // 
+            // TelaCategoriaVisualizarForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(414, 248);
-            Controls.Add(listDespesas);
+            ClientSize = new Size(760, 318);
+            Controls.Add(statusStrip1);
+            Controls.Add(tabelaDespesa);
             Controls.Add(lbTitulo);
             Controls.Add(txtTitulo);
             Controls.Add(btnFechar);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "TelaCategoriaVizualisarForm";
+            Name = "TelaCategoriaVisualizarForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TelaCategoriaVizualisarForm";
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -95,7 +114,9 @@
 
         private Label lbTitulo;
         private TextBox txtTitulo;
-        private ListBox listDespesas;
         private Button btnFechar;
+        private ModuloDespesa.TabelaDespesaControl tabelaDespesa;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel lbDespesas;
     }
 }

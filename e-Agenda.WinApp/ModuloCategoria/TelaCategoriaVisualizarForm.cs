@@ -1,6 +1,4 @@
-﻿using e_Agenda.WinApp.ModuloDespesa;
-
-namespace e_Agenda.WinApp.ModuloCategoria
+﻿namespace e_Agenda.WinApp.ModuloCategoria
 {
     public partial class TelaCategoriaVisualizarForm : Form
     {
@@ -15,10 +13,8 @@ namespace e_Agenda.WinApp.ModuloCategoria
         private void CarregarControls()
         {
             txtTitulo.Text = categoria.titulo;
-            foreach (Despesa despesa in categoria.despesas)
-            {
-                listDespesas.Items.Add(despesa);
-            }
+            tabelaDespesa.AtualizarRegistros(categoria.despesas);
+            lbDespesas.Text = $"Visualizando {categoria.despesas.Count} despesa(s)";
         }
     }
 }

@@ -66,7 +66,7 @@ namespace e_Agenda.WinApp.ModuloCategoria
             TelaCategoriaVisualizarForm telaCategoria = new TelaCategoriaVisualizarForm(categoria);
 
             telaCategoria.ShowDialog();
-          
+            CarregarCategorias();
         }
 
         public override void Editar()
