@@ -20,6 +20,7 @@
         public TelaCompromissoFiltroForm()
         {
             InitializeComponent();
+            this.ConfigurarDialog();
             this.dateTimeInicio.MinDate = DateTime.Now;
             this.dateTimeFinal.MinDate = DateTime.Now;
         }

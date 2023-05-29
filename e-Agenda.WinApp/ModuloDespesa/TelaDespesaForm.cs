@@ -9,6 +9,7 @@ namespace e_Agenda.WinApp.ModuloDespesa
         public TelaDespesaForm(List<Categoria> categorias)
         {
             InitializeComponent();
+            this.ConfigurarDialog();
             this.categorias = categorias;
             foreach (Categoria categoria in categorias)
             {

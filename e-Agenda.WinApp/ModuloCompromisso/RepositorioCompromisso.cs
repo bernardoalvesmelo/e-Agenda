@@ -1,6 +1,4 @@
-﻿using e_Agenda.WinApp.Compartilhado;
-
-namespace e_Agenda.WinApp.ModuloCompromisso
+﻿namespace e_Agenda.WinApp.ModuloCompromisso
 {
     public class RepositorioCompromisso : RepositorioBase<Compromisso>
     {

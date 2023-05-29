@@ -7,6 +7,7 @@
         public TelaTarefaForm()
         {
             InitializeComponent();
+            this.ConfigurarDialog();
             this.cmbPrioridade.SelectedItem = "Normal";
         }
         public Tarefa Tarefa

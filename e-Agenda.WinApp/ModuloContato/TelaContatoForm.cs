@@ -9,6 +9,7 @@ namespace e_Agenda.WinApp.ModuloContato
         public TelaContatoForm()
         {
             InitializeComponent();
+            this.ConfigurarDialog();
         }
 
         public Contato Contato

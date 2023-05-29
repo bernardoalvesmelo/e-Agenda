@@ -6,6 +6,7 @@
         public TelaCategoriaForm()
         {
             InitializeComponent();
+            this.ConfigurarDialog();
         }
 
         public Categoria Categoria

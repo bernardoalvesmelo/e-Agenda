@@ -16,6 +16,7 @@ namespace e_Agenda.WinApp.ModuloTarefa
         public TelaTarefaListaForm()
         {
             InitializeComponent();
+            this.ConfigurarDialog();
         }
 
         public void CarregarItens()

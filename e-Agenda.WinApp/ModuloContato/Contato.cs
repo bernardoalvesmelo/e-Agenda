@@ -1,5 +1,4 @@
-﻿using e_Agenda.WinApp.Compartilhado;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace e_Agenda.WinApp.ModuloContato
 {

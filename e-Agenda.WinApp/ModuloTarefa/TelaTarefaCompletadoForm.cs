@@ -34,6 +34,7 @@ namespace e_Agenda.WinApp.ModuloTarefa
         public TelaTarefaCompletadoForm()
         {
             InitializeComponent();
+            this.ConfigurarDialog();
         }
 
         public void CarregarItens()

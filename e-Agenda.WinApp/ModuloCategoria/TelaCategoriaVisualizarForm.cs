@@ -6,6 +6,7 @@
         public TelaCategoriaVisualizarForm(Categoria categoria)
         {
             InitializeComponent();
+            this.ConfigurarDialog();
             this.categoria = categoria;
             CarregarControls();
         }

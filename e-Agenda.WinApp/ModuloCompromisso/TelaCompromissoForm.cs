@@ -11,6 +11,7 @@ namespace e_Agenda.WinApp.ModuloCompromisso
         public TelaCompromissoForm()
         {
             InitializeComponent();
+            this.ConfigurarDialog();
             configurarDateTime(dateTimeInicio);
             configurarDateTime(dateTimeTermino);
         }
