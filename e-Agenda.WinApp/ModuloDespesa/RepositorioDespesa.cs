@@ -20,16 +20,16 @@ namespace e_Agenda.WinApp.ModuloDespesa
         {
             Despesa despesaSelecionada = SelecionarPorId(despesa.id);
 
-            despesaSelecionada.AtualizarInformacoes(despesa);
-
             foreach (Categoria categoria in despesaSelecionada.categorias)
             {
-                categoria.despesas.Remove(despesaSelecionada);
+                categoria.despesas = categoria.despesas.FindAll(d => d.id != despesa.id);
             }
             foreach (Categoria categoria in despesa.categorias)
             {
                 categoria.despesas.Add(despesa);
             }
+
+            despesaSelecionada.AtualizarInformacoes(despesa);
         }
 
 

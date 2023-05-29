@@ -3,7 +3,7 @@
     public abstract class RepositorioBase<TEntidade>
         where TEntidade : EntidadeBase<TEntidade>
     {
-        protected List<TEntidade> listaRegistros;
+        protected List<TEntidade> listaRegistros = new List<TEntidade>();
         protected int contadorRegistros = 0;
 
         public virtual void Inserir(TEntidade registro)
