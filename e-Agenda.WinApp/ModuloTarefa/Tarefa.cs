@@ -2,7 +2,7 @@
 
 namespace e_Agenda.WinApp.ModuloTarefa
 {
-    public class Tarefa: EntidadeBase
+    public class Tarefa: EntidadeBase<Tarefa>
     {
         public int id;
         public string titulo;
@@ -62,6 +62,12 @@ namespace e_Agenda.WinApp.ModuloTarefa
             return "Id: " + id + ", Título:" + titulo + ", Prioridade: " + prioridade +
                 ", DataCriação: " + dataCriacao.ToString() + ", DataConclusão: " +
                 data + ", Percentual Concluído: " + Percentual;
+        }
+
+        public override void AtualizarInformacoes(Tarefa tarefa)
+        {
+            this.titulo = tarefa.titulo;
+            this.prioridade = tarefa.prioridade;
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace e_Agenda.WinApp.ModuloContato
 {
-    public class Contato : EntidadeBase
+    public class Contato : EntidadeBase<Contato>
     {
         public int id;
         public string nome;
@@ -19,6 +19,15 @@ namespace e_Agenda.WinApp.ModuloContato
             this.email = email;
             this.cargo = cargo; 
             this.empresa = empresa;
+        }
+
+        public override void AtualizarInformacoes(Contato contato)
+        {
+            this.nome = contato.nome;
+            this.telefone = contato.telefone;
+            this.email = contato.email;
+            this.cargo = contato.cargo;
+            this.empresa = contato.empresa;
         }
 
         public override string ToString()

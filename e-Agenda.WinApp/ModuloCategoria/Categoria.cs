@@ -3,7 +3,7 @@ using e_Agenda.WinApp.ModuloDespesa;
 
 namespace e_Agenda.WinApp.ModuloCategoria
 {
-    public class Categoria : EntidadeBase
+    public class Categoria : EntidadeBase<Categoria>
     {
         public string titulo;
         public List<Despesa> despesas;
@@ -12,6 +12,11 @@ namespace e_Agenda.WinApp.ModuloCategoria
         {
             this.titulo = titulo;
             this.despesas = new List<Despesa>();
+        }
+
+        public override void AtualizarInformacoes(Categoria categoria)
+        {
+            this.titulo = categoria.titulo;
         }
 
         public override string ToString()

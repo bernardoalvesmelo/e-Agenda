@@ -3,7 +3,7 @@ using e_Agenda.WinApp.ModuloCategoria;
 
 namespace e_Agenda.WinApp.ModuloDespesa
 {
-    public class Despesa : EntidadeBase
+    public class Despesa : EntidadeBase<Despesa>
     {
         public string descricao;
         public decimal valor;
@@ -19,6 +19,15 @@ namespace e_Agenda.WinApp.ModuloDespesa
             this.data = data;
             this.formaPagamento = formaPagamento;
             this.categorias = new List<Categoria>();
+        }
+
+        public override void AtualizarInformacoes(Despesa despesa)
+        {
+            this.descricao = despesa.descricao;
+            this.data = despesa.data;
+            this.valor = despesa.valor;
+            this.formaPagamento = despesa.formaPagamento;
+            this.categorias = despesa.categorias;
         }
 
         public override string ToString()

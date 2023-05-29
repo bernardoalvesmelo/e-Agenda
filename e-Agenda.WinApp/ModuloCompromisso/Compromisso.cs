@@ -3,7 +3,7 @@ using e_Agenda.WinApp.ModuloContato;
 
 namespace e_Agenda.WinApp.ModuloCompromisso
 {
-    public class Compromisso : EntidadeBase
+    public class Compromisso : EntidadeBase<Compromisso>
     {
         public string assunto;
         public string local;
@@ -56,6 +56,16 @@ namespace e_Agenda.WinApp.ModuloCompromisso
             return "Id: " + id + ", Assunto: " + assunto + ", Local: " + local +
                 ", Data: " + data.ToString() + ", HoraInício: " + horaInicio.ToString("HH:mm") + 
                 ", HoraTérmino: " + horaTermino.ToString("HH:mm") + contato;
+        }
+
+        public override void AtualizarInformacoes(Compromisso compromisso)
+        {
+            this.assunto = compromisso.assunto;
+            this.local = compromisso.local;
+            this.data = compromisso.data;
+            this.horaInicio = compromisso.horaInicio;
+            this.horaTermino = compromisso.horaTermino;
+            this.contatoCompromisso = compromisso.contatoCompromisso;
         }
     }
 }
