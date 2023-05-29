@@ -108,6 +108,9 @@ namespace e_Agenda.WinApp.ModuloDespesa
         {
             List<Despesa> despesas = repositorioDespesa.SelecionarTodos();
 
+            TelaPrincipalForm.Instancia.AtualizarRodape(
+                $"Visualizando {despesas.Count} despesa(s)");
+
             tabelaDespesa.AtualizarRegistros(despesas);
         }
 

@@ -1,6 +1,4 @@
-﻿using e_Agenda.WinApp.Compartilhado;
-
-namespace e_Agenda.WinApp.ModuloTarefa
+﻿namespace e_Agenda.WinApp.ModuloTarefa
 {
     public partial class TabelaTarefaControl : UserControl
     {
@@ -63,8 +61,6 @@ namespace e_Agenda.WinApp.ModuloTarefa
                     tarefa.dataCriacao.ToString("dd/MM/yyyy"), tarefa.DataConclusao, 
                     tarefa.Percentual);
             }
-            TelaPrincipalForm.Instancia.AtualizarRodape(
-              $"Visualizando {tarefas.Count} tarefa(s)");
         }
 
         public int ObterIdSelecionado()

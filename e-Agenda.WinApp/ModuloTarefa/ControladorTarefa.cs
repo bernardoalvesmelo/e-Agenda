@@ -140,7 +140,7 @@
                         tarefas = repositorioTarefa.SelecionarTodos();
                         break;
                 }
-                tabelaTarefa.AtualizarRegistros(tarefas);
+                CarregarTarefas(tarefas);
             }
         }
 
@@ -209,9 +209,21 @@
             }
         }
 
+        private void CarregarTarefas(List<Tarefa> tarefas)
+        {
+
+            TelaPrincipalForm.Instancia.AtualizarRodape(
+             $"Visualizando {tarefas.Count} tarefa(s)");
+
+            tabelaTarefa.AtualizarRegistros(tarefas);
+        }
+
         private void CarregarTarefas()
         {
             List<Tarefa> tarefas = repositorioTarefa.SelecionarTodos();
+
+            TelaPrincipalForm.Instancia.AtualizarRodape(
+             $"Visualizando {tarefas.Count} tarefa(s)");
 
             tabelaTarefa.AtualizarRegistros(tarefas);
         }

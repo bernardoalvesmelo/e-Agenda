@@ -99,6 +99,9 @@
         {
             List<Contato> contatos = repositorioContato.SelecionarTodos();
 
+            TelaPrincipalForm.Instancia.AtualizarRodape(
+                $"Visualizando {contatos.Count} contato(s)");
+
             tabelaContato.AtualizarRegistros(contatos);
         }
 

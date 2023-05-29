@@ -107,6 +107,17 @@ namespace e_Agenda.WinApp.ModuloCompromisso
         {
             List<Compromisso> compromissos = repositorioCompromisso.SelecionarTodos();
 
+            TelaPrincipalForm.Instancia.AtualizarRodape(
+                $"Visualizando {compromissos.Count} compromisso(s)");
+
+            tabelaCompromisso.AtualizarRegistros(compromissos);
+        }
+
+        private void CarregarCompromissos(List<Compromisso> compromissos)
+        {
+            TelaPrincipalForm.Instancia.AtualizarRodape(
+                $"Visualizando {compromissos.Count} compromisso(s)");
+
             tabelaCompromisso.AtualizarRegistros(compromissos);
         }
 
@@ -136,7 +147,7 @@ namespace e_Agenda.WinApp.ModuloCompromisso
 
                 List<Compromisso> compromissos = repositorioCompromisso.SelecionarAlternativa(periodo);
 
-                tabelaCompromisso.AtualizarRegistros(compromissos);
+                CarregarCompromissos(compromissos);
 
             }
         }
@@ -170,7 +181,7 @@ namespace e_Agenda.WinApp.ModuloCompromisso
                         compromissos = repositorioCompromisso.SelecionarTodos();
                         break;
                 }
-                tabelaCompromisso.AtualizarRegistros(compromissos);
+                CarregarCompromissos(compromissos);
             }
         }
 

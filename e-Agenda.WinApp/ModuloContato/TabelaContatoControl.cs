@@ -1,6 +1,4 @@
-﻿using e_Agenda.WinApp.Compartilhado;
-
-namespace e_Agenda.WinApp.ModuloContato
+﻿namespace e_Agenda.WinApp.ModuloContato
 {
     public partial class TabelaContatoControl : UserControl
     {
@@ -62,8 +60,6 @@ namespace e_Agenda.WinApp.ModuloContato
                 grid.Rows.Add(contato.id, contato.nome, contato.telefone, contato.email, 
                     contato.cargo, contato.empresa);
             }
-            TelaPrincipalForm.Instancia.AtualizarRodape(
-                $"Visualizando {contatos.Count} contato(s)");
         }
 
         public int ObterIdSelecionado()

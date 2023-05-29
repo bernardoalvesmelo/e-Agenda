@@ -124,6 +124,9 @@
         {
             List<Categoria> categorias = repositorioCategoria.SelecionarTodos();
 
+            TelaPrincipalForm.Instancia.AtualizarRodape(
+                $"Visualizando {categorias.Count} categoria(s)");
+
             tabelaCategoria.AtualizarRegistros(categorias);
         }
 

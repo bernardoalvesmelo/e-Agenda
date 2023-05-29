@@ -1,7 +1,4 @@
-﻿using e_Agenda.WinApp.Compartilhado;
-using e_Agenda.WinApp.ModuloTarefa;
-
-namespace e_Agenda.WinApp.ModuloDespesa
+﻿namespace e_Agenda.WinApp.ModuloDespesa
 {
     public partial class TabelaDespesaControl : UserControl
     {
@@ -59,8 +56,6 @@ namespace e_Agenda.WinApp.ModuloDespesa
                 grid.Rows.Add(despesa.id, despesa.descricao, Math.Round(despesa.valor, 2),
                     despesa.data.ToString("dd/MM/yyyy"), despesa.formaPagamento);
             }
-            TelaPrincipalForm.Instancia.AtualizarRodape(
-                $"Visualizando {despesas.Count} despesa(s)");
         }
 
         public int ObterIdSelecionado()
