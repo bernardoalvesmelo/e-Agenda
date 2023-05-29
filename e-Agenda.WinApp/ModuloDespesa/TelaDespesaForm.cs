@@ -23,7 +23,9 @@ namespace e_Agenda.WinApp.ModuloDespesa
             foreach (Categoria item in categorias)
             {
                 if (despesa.categorias.Contains(item))
+                {
                     listCategorias.SetItemChecked(i, true);
+                }
                 i++;
             }
         }
@@ -59,6 +61,14 @@ namespace e_Agenda.WinApp.ModuloDespesa
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
+            string[] telaErros = Validar();
+            if (telaErros.Length > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape(telaErros[0]);
+                DialogResult = DialogResult.None;
+                return;
+            }
+
             string descricao = txtDescricao.Text;
 
             decimal valor = Convert.ToDecimal(txtValor.Text);
@@ -82,6 +92,20 @@ namespace e_Agenda.WinApp.ModuloDespesa
                 TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
                 DialogResult = DialogResult.None;
             }
+        }
+
+        private string[] Validar()
+        {
+            List<string> erros = new List<string>();
+            try
+            {
+                decimal valor = Convert.ToDecimal(txtValor.Text);
+            }
+            catch
+            {
+                erros.Add("Campo -Valor- precisa ser um número decimal");
+            }
+            return erros.ToArray();
         }
     }
 }
