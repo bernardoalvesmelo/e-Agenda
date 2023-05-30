@@ -4,11 +4,11 @@ namespace e_Agenda.WinApp.ModuloDespesa
 {
     public class ControladorDespesa : ControladorBase
     {
-        private RepositorioDespesa repositorioDespesa;
-        private RepositorioCategoria repositorioCategoria;
+        private IRepositorioDespesa repositorioDespesa;
+        private IRepositorioCategoria repositorioCategoria;
         private TabelaDespesaControl tabelaDespesa;
 
-        public ControladorDespesa(RepositorioDespesa repositorioDespesa, RepositorioCategoria repositorioCategoria)
+        public ControladorDespesa(IRepositorioDespesa repositorioDespesa, IRepositorioCategoria repositorioCategoria)
         {
             this.repositorioDespesa = repositorioDespesa;
             this.repositorioCategoria = repositorioCategoria;
@@ -46,6 +46,8 @@ namespace e_Agenda.WinApp.ModuloDespesa
 
                 repositorioDespesa.Inserir(despesa);
 
+                repositorioCategoria.AtualizarCategorias(despesa.categorias);
+
                 CarregarDespesas();
             }
         }
@@ -75,6 +77,8 @@ namespace e_Agenda.WinApp.ModuloDespesa
             {
                 repositorioDespesa.Editar(telaDespesa.Despesa);
 
+                repositorioCategoria.AtualizarCategorias(despesa.categorias);
+
                 CarregarDespesas();
             }
         }
@@ -99,6 +103,8 @@ namespace e_Agenda.WinApp.ModuloDespesa
             if (opcaoEscolhida == DialogResult.OK)
             {
                 repositorioDespesa.Excluir(despesa);
+
+                repositorioCategoria.AtualizarCategorias(despesa.categorias);
 
                 CarregarDespesas();
             }

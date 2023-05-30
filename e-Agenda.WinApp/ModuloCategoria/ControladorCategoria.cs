@@ -2,10 +2,10 @@
 {
     public class ControladorCategoria : ControladorBase
     {
-        private RepositorioCategoria repositorioCategoria;
+        private IRepositorioCategoria repositorioCategoria;
         private TabelaCategoriaControl tabelaCategoria;
 
-        public ControladorCategoria(RepositorioCategoria repositorioCategoria)
+        public ControladorCategoria(IRepositorioCategoria repositorioCategoria)
         {
             this.repositorioCategoria = repositorioCategoria;
         }

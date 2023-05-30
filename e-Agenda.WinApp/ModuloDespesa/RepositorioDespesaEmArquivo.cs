@@ -2,20 +2,24 @@
 
 namespace e_Agenda.WinApp.ModuloDespesa
 {
-    public class RepositorioDespesa : RepositorioBase<Despesa>
+    public class RepositorioDespesaEmArquivo : RepositorioEmArquivoBase<Despesa>,
+        IRepositorioDespesa
     {
+        private const string NOME_ARQUIVO_DESPESAS = "C:\\temp\\despesas\\dados-despesas.bin";
+        public RepositorioDespesaEmArquivo() : base(NOME_ARQUIVO_DESPESAS)
+        {
+        }
 
-
-        public void Inserir(Despesa despesa)
+        public override void Inserir(Despesa despesa)
         {
             base.Inserir(despesa);
-            foreach(Categoria categoria in despesa.categorias)
+            foreach (Categoria categoria in despesa.categorias)
             {
                 categoria.despesas.Add(despesa);
             }
         }
 
-        public void Editar(Despesa despesa)
+        public override void Editar(Despesa despesa)
         {
             Despesa despesaSelecionada = SelecionarPorId(despesa.id);
 

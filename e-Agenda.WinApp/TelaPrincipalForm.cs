@@ -1,4 +1,3 @@
-using e_Agenda.WinApp.Compartilhado;
 using e_Agenda.WinApp.ModuloContato;
 using e_Agenda.WinApp.ModuloCompromisso;
 using e_Agenda.WinApp.ModuloTarefa;
@@ -10,11 +9,11 @@ namespace e_Agenda.WinApp
     public partial class TelaPrincipalForm : Form
     {
         private ControladorBase controlador;
-        private RepositorioContato repositorioContato = new RepositorioContato();
-        private RepositorioCompromisso repositorioCompromisso = new RepositorioCompromisso();
-        private RepositorioTarefa repositorioTarefa = new RepositorioTarefa();
-        private RepositorioCategoria repositorioCategoria = new RepositorioCategoria();
-        private RepositorioDespesa repositorioDespesa = new RepositorioDespesa();
+        private IRepositorioContato repositorioContato = new RepositorioContatoEmArquivo();
+        private IRepositorioCompromisso repositorioCompromisso = new RepositorioCompromissoEmArquivo();
+        private IRepositorioTarefa repositorioTarefa = new RepositorioTarefaEmArquivo();
+        private IRepositorioCategoria repositorioCategoria = new RepositorioCategoriaEmArquivo();
+        private IRepositorioDespesa repositorioDespesa = new RepositorioDespesaEmArquivo();
 
         private static TelaPrincipalForm telaPrincipal;
 

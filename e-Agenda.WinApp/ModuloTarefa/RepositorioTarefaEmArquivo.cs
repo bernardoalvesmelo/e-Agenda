@@ -1,10 +1,14 @@
 ﻿namespace e_Agenda.WinApp.ModuloTarefa
 {
-    public class RepositorioTarefa : RepositorioBase<Tarefa>
+    public class RepositorioTarefaEmArquivo : RepositorioEmArquivoBase<Tarefa>,
+        IRepositorioTarefa
     {
+        private const string NOME_ARQUIVO_TAREFAS = "C:\\temp\\tarefas\\dados-tarefas.bin";
+        public RepositorioTarefaEmArquivo() : base(NOME_ARQUIVO_TAREFAS)
+        {
+        }
 
         private static int contadorItem;
-
 
         public void InserirItem(Tarefa tarefa, Item item)
         {
@@ -12,16 +16,19 @@
             tarefaSelecionada.dataConclusao = new DateTime();
             item.id = ++contadorItem;
             tarefaSelecionada.itens.Add(item);
+            base.GravarRegistrosEmArquivo();
         }
 
         public void ConcluirItem(Tarefa tarefa, Item item)
         {
             Tarefa tarefaSelecionada = base.SelecionarPorId(tarefa.id);
             tarefaSelecionada.dataConclusao = tarefa.dataConclusao;
-            if (item != null) {
+            if (item != null)
+            {
                 tarefaSelecionada.itens.Find(i => i == item).completado = true;
             }
-        } 
+            base.GravarRegistrosEmArquivo();
+        }
 
 
         public List<Tarefa> SelecionarAlternativa(Predicate<Tarefa> alternativa)
@@ -42,7 +49,7 @@
             string prioridadeY = tarefaY.prioridade;
             string[] prioridades = { "Baixa", "Normal", "Alta" };
             int x = Array.IndexOf(prioridades, prioridadeX);
-            int y = Array.IndexOf(prioridades,prioridadeY);
+            int y = Array.IndexOf(prioridades, prioridadeY);
             return y.CompareTo(x);
         }
     }

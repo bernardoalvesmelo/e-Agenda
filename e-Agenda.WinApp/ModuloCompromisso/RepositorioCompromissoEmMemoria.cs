@@ -1,6 +1,7 @@
 ﻿namespace e_Agenda.WinApp.ModuloCompromisso
 {
-    public class RepositorioCompromisso : RepositorioBase<Compromisso>
+    public class RepositorioCompromissoEmMemoria : RepositorioEmMemoriaBase<Compromisso>, 
+        IRepositorioCompromisso
     {
         
         public List<Compromisso> SelecionarAlternativa(Predicate<Compromisso> alternativa)
