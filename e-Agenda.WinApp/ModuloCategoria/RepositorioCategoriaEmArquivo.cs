@@ -3,9 +3,13 @@
     public class RepositorioCategoriaEmArquivo : RepositorioEmArquivoBase<Categoria>,
         IRepositorioCategoria
     {
-        private const string NOME_ARQUIVO_CATEGORIAS = "ModuloCategoria\\categorias";
-        public RepositorioCategoriaEmArquivo() : base(NOME_ARQUIVO_CATEGORIAS)
+        public RepositorioCategoriaEmArquivo()
         {
+        }
+
+        protected override List<Categoria> ObterRegistros()
+        {
+            return base.contexto.categorias;
         }
     }
 }

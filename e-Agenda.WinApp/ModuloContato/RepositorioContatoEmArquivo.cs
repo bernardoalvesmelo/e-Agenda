@@ -3,9 +3,14 @@
     public class RepositorioContatoEmArquivo : RepositorioEmArquivoBase<Contato>,
         IRepositorioContato
     {
-        private const string NOME_ARQUIVO_CONTATOS = "ModuloContato\\contatos";
-        public RepositorioContatoEmArquivo() : base(NOME_ARQUIVO_CONTATOS)
+        
+        public RepositorioContatoEmArquivo()
         {
+        }
+
+        protected override List<Contato> ObterRegistros()
+        {
+            return base.contexto.contatos;
         }
     }
 }

@@ -3,8 +3,8 @@
     public class RepositorioTarefaEmArquivo : RepositorioEmArquivoBase<Tarefa>,
         IRepositorioTarefa
     {
-        private const string NOME_ARQUIVO_TAREFAS = "ModuloTarefa\\tarefas";
-        public RepositorioTarefaEmArquivo() : base(NOME_ARQUIVO_TAREFAS)
+        
+        public RepositorioTarefaEmArquivo()
         {
         }
 
@@ -16,7 +16,7 @@
             tarefaSelecionada.dataConclusao = new DateTime();
             item.id = ++contadorItem;
             tarefaSelecionada.itens.Add(item);
-            base.GravarRegistrosEmArquivo();
+            base.contexto.GravarRegistrosEmArquivo();
         }
 
         public void ConcluirItem(Tarefa tarefa, Item item)
@@ -27,20 +27,20 @@
             {
                 tarefaSelecionada.itens.Find(i => i == item).completado = true;
             }
-            base.GravarRegistrosEmArquivo();
+            base.contexto.GravarRegistrosEmArquivo();
         }
 
 
         public List<Tarefa> SelecionarAlternativa(Predicate<Tarefa> alternativa)
         {
-            return base.listaRegistros.FindAll(alternativa);
+            return ObterRegistros().FindAll(alternativa);
         }
 
         public List<Tarefa> SelecionarPrioridadeOrdenada()
         {
             string[] prioridades = { "Baixa", "Normal", "Alta" };
-            base.listaRegistros.Sort(CompararPrioridades);
-            return base.listaRegistros;
+            ObterRegistros().Sort(CompararPrioridades);
+            return ObterRegistros();
         }
 
         private int CompararPrioridades(Tarefa tarefaX, Tarefa tarefaY)
@@ -51,6 +51,11 @@
             int x = Array.IndexOf(prioridades, prioridadeX);
             int y = Array.IndexOf(prioridades, prioridadeY);
             return y.CompareTo(x);
+        }
+
+        protected override List<Tarefa> ObterRegistros()
+        {
+            return base.contexto.tarefas;
         }
     }
 }

@@ -3,14 +3,19 @@
     public class RepositorioCompromissoEmArquivo : RepositorioEmArquivoBase<Compromisso>,
         IRepositorioCompromisso
     {
-        private const string NOME_ARQUIVO_COMPROMISSOS = "ModuloCompromisso\\compromissos";
-        public RepositorioCompromissoEmArquivo() : base(NOME_ARQUIVO_COMPROMISSOS)
+      
+        public RepositorioCompromissoEmArquivo()
         {
         }
 
         public List<Compromisso> SelecionarAlternativa(Predicate<Compromisso> alternativa)
         {
-            return base.listaRegistros.FindAll(alternativa);
+            return ObterRegistros().FindAll(alternativa);
+        }
+
+        protected override List<Compromisso> ObterRegistros()
+        {
+            return base.contexto.compromissos;
         }
     }
 }

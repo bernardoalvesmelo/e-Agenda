@@ -1,0 +1,47 @@
+{
+  "$id": "1",
+  "contatos": {
+    "$id": "2",
+    "$values": [
+      {
+        "$id": "3",
+        "nome": "teste",
+        "telefone": "3567567897",
+        "email": "g@gmail.com",
+        "cargo": "teste",
+        "empresa": "teste",
+        "id": 1
+      }
+    ]
+  },
+  "compromissos": {
+    "$id": "4",
+    "$values": [
+      {
+        "$id": "5",
+        "Contato": "teste",
+        "assunto": "dfd",
+        "local": "fdfdf",
+        "data": "2023-06-01T16:47:47.089213-03:00",
+        "horaInicio": "2023-05-17T15:51:00",
+        "horaTermino": "2023-05-17T15:51:00",
+        "contatoCompromisso": {
+          "$ref": "3"
+        },
+        "id": 1
+      }
+    ]
+  },
+  "tarefas": {
+    "$id": "6",
+    "$values": []
+  },
+  "categorias": {
+    "$id": "7",
+    "$values": []
+  },
+  "despesas": {
+    "$id": "8",
+    "$values": []
+  }
+}

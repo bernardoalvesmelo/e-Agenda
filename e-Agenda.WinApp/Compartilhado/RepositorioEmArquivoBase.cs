@@ -1,47 +1,25 @@
-﻿using System.Runtime.Serialization.Formatters.Binary;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Xml.Serialization;
-
-namespace e_Agenda.WinApp.Compartilhado
+﻿namespace e_Agenda.WinApp.Compartilhado
 {
-    public class RepositorioEmArquivoBase<TEntidade>
+    public abstract class RepositorioEmArquivoBase<TEntidade>
         where TEntidade : EntidadeBase<TEntidade>
     {
-        
+        protected ContextoDados contexto = ContextoDados.Instancia;
+
         protected int contadorRegistros = 0;
-
-        protected List<TEntidade> listaRegistros = new List<TEntidade>();
-
-        protected string nomeArquivo = "registros";
-
-        protected const string ARQUIVO_FORMATO = "bin";
-        protected string NomeArquivo
+  
+        public RepositorioEmArquivoBase()
         {
-            get
-            {
-                return this.nomeArquivo;
-            }
-            set
-            {
-                this.nomeArquivo = value;
-            }
-        }
-
-        public RepositorioEmArquivoBase(string nomeArquivo)
-        {
-            NomeArquivo = nomeArquivo + "." + ARQUIVO_FORMATO;
-            if (File.Exists(NomeArquivo))
-                CarregarRegistrosDoArquivo();
+            contexto = ContextoDados.Instancia;
+            AtualizarContador();
         }
 
         public virtual void Inserir(TEntidade registro)
         {
             contadorRegistros++;
             registro.id = contadorRegistros;
-            listaRegistros.Add(registro);
+            ObterRegistros().Add(registro);
 
-            GravarRegistrosEmArquivo();
+            this.contexto.GravarRegistrosEmArquivo();
         }
 
         public virtual void Editar(TEntidade registroAtualizado)
@@ -50,141 +28,36 @@ namespace e_Agenda.WinApp.Compartilhado
 
             registroSelecionado.AtualizarInformacoes(registroAtualizado);
 
-            GravarRegistrosEmArquivo();
+            this.contexto.GravarRegistrosEmArquivo();
         }
 
         public virtual void Excluir(TEntidade registroSelecionado)
         {
-            listaRegistros.Remove(registroSelecionado);
+            ObterRegistros().Remove(registroSelecionado);
 
-            GravarRegistrosEmArquivo();
+            this.contexto.GravarRegistrosEmArquivo();
         }
 
         public virtual TEntidade SelecionarPorId(int id)
         {
-            TEntidade registro = listaRegistros.FirstOrDefault(x => x.id == id);
+            TEntidade registro = ObterRegistros().FirstOrDefault(x => x.id == id);
 
             return registro;
         }
 
         public virtual List<TEntidade> SelecionarTodos()
         {
-            return listaRegistros;
-        }
-
-        protected virtual void CarregarRegistrosDoArquivo()
-        {
-            switch (ARQUIVO_FORMATO)
-            {
-                case "bin":
-                    CarregarRegistrosDoArquivoBin();
-                    break;
-                case "xml":
-                    CarregarRegistrosDoArquivoXml();
-                    break;
-                case "json":
-                    CarregarRegistrosDoArquivoJson();
-                    break;
-            }
-        }
-
-        protected virtual void CarregarRegistrosDoArquivoBin()
-        {
-            BinaryFormatter serializador = new BinaryFormatter();
-
-            byte[] registroEmBytes = File.ReadAllBytes(NomeArquivo);
-
-            MemoryStream registroStream = new MemoryStream(registroEmBytes);
-
-            this.listaRegistros = (List<TEntidade>)serializador.Deserialize(registroStream);
-
-            AtualizarContador();
-        }
-
-        protected virtual void CarregarRegistrosDoArquivoXml()
-        {
-            XmlSerializer serializador = new XmlSerializer(typeof(List<TEntidade>));
-
-            byte[] registroEmBytes = File.ReadAllBytes(NomeArquivo);
-
-            MemoryStream registroStream = new MemoryStream(registroEmBytes);
-
-            this.listaRegistros = (List<TEntidade>)serializador.Deserialize(registroStream);
-
-            AtualizarContador();
-        }
-
-        protected virtual void CarregarRegistrosDoArquivoJson()
-        {
-            JsonSerializerOptions opcoes = new JsonSerializerOptions();
-            opcoes.IncludeFields = true;
-            opcoes.ReferenceHandler = ReferenceHandler.Preserve;
-
-            string arquivoJson = File.ReadAllText(NomeArquivo);
-            this.listaRegistros = JsonSerializer.Deserialize<List<TEntidade>>(arquivoJson, opcoes);
-
-            AtualizarContador();
+            return ObterRegistros();
         }
 
         protected virtual void AtualizarContador()
         {
-            contadorRegistros = listaRegistros.Max(x => x.id);
+            if(ObterRegistros().Count > 0)
+                contadorRegistros = ObterRegistros().Max(x => x.id);
         }
 
-        protected virtual void GravarRegistrosEmArquivo()
-        {
-            switch(ARQUIVO_FORMATO)
-            {
-                case "bin":
-                    GravarRegistrosEmArquivoBin();
-                    break;
-                case "xml":
-                    GravarRegistrosEmArquivoXml();
-                    break;
-                case "json":
-                    GravarRegistrosEmArquivoJson();
-                    break;
-            }
-        }
-
-        protected virtual void GravarRegistrosEmArquivoBin()
-        {
-            BinaryFormatter serializador = new BinaryFormatter();
-
-            MemoryStream registroStream = new MemoryStream();
-
-            serializador.Serialize(registroStream, listaRegistros);
-
-            byte[] registrosEmBytes = registroStream.ToArray();
-
-            File.WriteAllBytes(NomeArquivo, registrosEmBytes);
-        }
-
-
-        protected virtual void GravarRegistrosEmArquivoXml()
-        {
-            XmlSerializer serializador = new XmlSerializer(typeof(List<TEntidade>));
-
-            MemoryStream registroStream = new MemoryStream();
-
-            serializador.Serialize(registroStream, listaRegistros);
-
-            byte[] registrosEmBytes = registroStream.ToArray();
-
-            File.WriteAllBytes(NomeArquivo, registrosEmBytes);
-        }
-
-        protected virtual void GravarRegistrosEmArquivoJson()
-        {
-            JsonSerializerOptions opcoes = new JsonSerializerOptions();
-            opcoes.IncludeFields = true;
-            opcoes.WriteIndented = true;
-            opcoes.ReferenceHandler = ReferenceHandler.Preserve;
-
-            string arquivoJson = JsonSerializer.Serialize(listaRegistros, opcoes);
-
-            File.WriteAllText(NomeArquivo, arquivoJson);
-        }
+        protected abstract List<TEntidade> ObterRegistros();
+        
     }
 }
 

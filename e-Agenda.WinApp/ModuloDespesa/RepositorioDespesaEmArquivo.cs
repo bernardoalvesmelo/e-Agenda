@@ -5,15 +5,14 @@ namespace e_Agenda.WinApp.ModuloDespesa
     public class RepositorioDespesaEmArquivo : RepositorioEmArquivoBase<Despesa>,
         IRepositorioDespesa
     {
-        private const string NOME_ARQUIVO_DESPESAS = "ModuloDespesa\\despesas";
-        public RepositorioDespesaEmArquivo() : base(NOME_ARQUIVO_DESPESAS)
+        public RepositorioDespesaEmArquivo()
         {
         }
 
         public List<Despesa> ObterDespesasRespectivas(Categoria categoria)
         {
             List<Despesa> despesas = new List<Despesa>();
-            foreach (Despesa despesa in base.listaRegistros)
+            foreach (Despesa despesa in ObterRegistros())
             {
                 if (despesa.categorias.Find(d => d.id == categoria.id) != null)
                 {
@@ -21,6 +20,11 @@ namespace e_Agenda.WinApp.ModuloDespesa
                 }
             }
             return despesas;
+        }
+
+        protected override List<Despesa> ObterRegistros()
+        {
+            return base.contexto.despesas;
         }
     }
 }
