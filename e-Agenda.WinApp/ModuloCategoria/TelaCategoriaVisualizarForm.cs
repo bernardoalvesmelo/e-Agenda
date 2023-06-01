@@ -1,21 +1,25 @@
-﻿namespace e_Agenda.WinApp.ModuloCategoria
+﻿using e_Agenda.WinApp.ModuloDespesa;
+
+namespace e_Agenda.WinApp.ModuloCategoria
 {
     public partial class TelaCategoriaVisualizarForm : Form
     {
         private Categoria categoria;
-        public TelaCategoriaVisualizarForm(Categoria categoria)
+        private List<Despesa> despesas;
+        public TelaCategoriaVisualizarForm(Categoria categoria, List<Despesa> despesas)
         {
             InitializeComponent();
             this.ConfigurarDialog();
             this.categoria = categoria;
+            this.despesas = despesas;
             CarregarControls();
         }
 
         private void CarregarControls()
         {
             txtTitulo.Text = categoria.titulo;
-            tabelaDespesa.AtualizarRegistros(categoria.despesas);
-            lbDespesas.Text = $"Visualizando {categoria.despesas.Count} despesa(s)";
+            tabelaDespesa.AtualizarRegistros(this.despesas);
+            lbDespesas.Text = $"Visualizando {this.despesas.Count} despesa(s)";
         }
     }
 }

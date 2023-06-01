@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDespesa xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Despesa>
+    <id>1</id>
+    <descricao>Estudo</descricao>
+    <valor>30</valor>
+    <data>2023-05-31T00:00:00-03:00</data>
+    <formaPagamento>Dinheiro</formaPagamento>
+    <categorias>
+      <Categoria>
+        <id>1</id>
+        <titulo>Estudo</titulo>
+      </Categoria>
+    </categorias>
+  </Despesa>
+</ArrayOfDespesa>

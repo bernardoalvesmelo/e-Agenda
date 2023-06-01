@@ -7,6 +7,10 @@
         public string descricao;
         public bool completado;
 
+        public Item()
+        {
+
+        }
         public Item(string descricao, bool completado)
         {
             this.descricao = descricao;

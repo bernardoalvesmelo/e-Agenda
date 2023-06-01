@@ -1,0 +1,23 @@
+{
+  "$id": "1",
+  "$values": [
+    {
+      "$id": "2",
+      "descricao": "Livro",
+      "valor": 30,
+      "data": "2023-05-31T00:00:00-03:00",
+      "formaPagamento": 0,
+      "categorias": {
+        "$id": "3",
+        "$values": [
+          {
+            "$id": "4",
+            "titulo": "Estudo",
+            "id": 1
+          }
+        ]
+      },
+      "id": 1
+    }
+  ]
+}

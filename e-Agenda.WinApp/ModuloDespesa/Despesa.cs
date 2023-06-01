@@ -12,6 +12,10 @@ namespace e_Agenda.WinApp.ModuloDespesa
 
         public List<Categoria> categorias;
 
+        public Despesa()
+        {
+
+        }
         public Despesa(string descricao, decimal valor, DateTime data, FormasPagamentoEnum formaPagamento)
         {
             this.descricao = descricao;

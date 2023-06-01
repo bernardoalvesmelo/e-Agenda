@@ -26,6 +26,11 @@
             }
         }
 
+        public Tarefa()
+        {
+
+        }
+
         public Tarefa(string titulo, string prioridade, DateTime dataCriacao)
         {
             this.titulo = titulo;

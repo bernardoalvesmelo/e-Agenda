@@ -3,7 +3,7 @@
     public class RepositorioCompromissoEmArquivo : RepositorioEmArquivoBase<Compromisso>,
         IRepositorioCompromisso
     {
-        private const string NOME_ARQUIVO_COMPROMISSOS = "C:\\temp\\compromissos\\dados-compromissos.bin";
+        private const string NOME_ARQUIVO_COMPROMISSOS = "ModuloCompromisso\\compromissos";
         public RepositorioCompromissoEmArquivo() : base(NOME_ARQUIVO_COMPROMISSOS)
         {
         }

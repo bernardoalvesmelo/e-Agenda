@@ -1,13 +1,17 @@
-﻿namespace e_Agenda.WinApp.ModuloCategoria
+﻿using e_Agenda.WinApp.ModuloDespesa;
+
+namespace e_Agenda.WinApp.ModuloCategoria
 {
     public class ControladorCategoria : ControladorBase
     {
         private IRepositorioCategoria repositorioCategoria;
+        private IRepositorioDespesa repositorioDespesa;
         private TabelaCategoriaControl tabelaCategoria;
 
-        public ControladorCategoria(IRepositorioCategoria repositorioCategoria)
+        public ControladorCategoria(IRepositorioCategoria repositorioCategoria, IRepositorioDespesa repositorioDespesa)
         {
             this.repositorioCategoria = repositorioCategoria;
+            this.repositorioDespesa = repositorioDespesa;
         }
 
         public override string ToolTipInserir { get { return "Inserir nova Categoria";  } }
@@ -61,7 +65,9 @@
                 return;
             }
 
-            TelaCategoriaVisualizarForm telaCategoria = new TelaCategoriaVisualizarForm(categoria);
+            TelaCategoriaVisualizarForm telaCategoria = 
+                new TelaCategoriaVisualizarForm(
+                    categoria, repositorioDespesa.ObterDespesasRespectivas(categoria));
 
             telaCategoria.ShowDialog();
             CarregarCategorias();

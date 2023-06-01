@@ -6,12 +6,14 @@ namespace e_Agenda.WinApp.ModuloCategoria
     public class Categoria : EntidadeBase<Categoria>
     {
         public string titulo;
-        public List<Despesa> despesas;
 
+        public Categoria()
+        {
+
+        }
         public Categoria(string titulo)
         {
             this.titulo = titulo;
-            this.despesas = new List<Despesa>();
         }
 
         public override void AtualizarInformacoes(Categoria categoria)

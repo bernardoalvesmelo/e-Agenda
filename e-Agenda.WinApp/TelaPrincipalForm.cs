@@ -61,7 +61,7 @@ namespace e_Agenda.WinApp
 
         private void categoriasMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorCategoria(repositorioCategoria);
+            controlador = new ControladorCategoria(repositorioCategoria, repositorioDespesa);
 
             ConfigurarTelaPrincipal(controlador);
         }

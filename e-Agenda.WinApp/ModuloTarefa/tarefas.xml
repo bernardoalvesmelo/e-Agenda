@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTarefa xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Tarefa>
+    <id>1</id>
+    <titulo>Estudar</titulo>
+    <prioridade>Alta</prioridade>
+    <dataCriacao>2023-05-31T20:47:38.5214607-03:00</dataCriacao>
+    <dataConclusao>2023-05-31T20:48:11.8655772-03:00</dataConclusao>
+    <itens>
+      <Item>
+        <id>1</id>
+        <descricao>Estudar Serialização</descricao>
+        <completado>true</completado>
+      </Item>
+    </itens>
+  </Tarefa>
+</ArrayOfTarefa>

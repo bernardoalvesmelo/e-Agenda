@@ -3,7 +3,7 @@
     public class RepositorioContatoEmArquivo : RepositorioEmArquivoBase<Contato>,
         IRepositorioContato
     {
-        private const string NOME_ARQUIVO_CONTATOS = "C:\\temp\\contatos\\dados-contatos.bin";
+        private const string NOME_ARQUIVO_CONTATOS = "ModuloContato\\contatos";
         public RepositorioContatoEmArquivo() : base(NOME_ARQUIVO_CONTATOS)
         {
         }

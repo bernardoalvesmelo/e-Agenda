@@ -46,8 +46,6 @@ namespace e_Agenda.WinApp.ModuloDespesa
 
                 repositorioDespesa.Inserir(despesa);
 
-                repositorioCategoria.AtualizarCategorias(despesa.categorias);
-
                 CarregarDespesas();
             }
         }
@@ -77,8 +75,6 @@ namespace e_Agenda.WinApp.ModuloDespesa
             {
                 repositorioDespesa.Editar(telaDespesa.Despesa);
 
-                repositorioCategoria.AtualizarCategorias(despesa.categorias);
-
                 CarregarDespesas();
             }
         }
@@ -103,8 +99,6 @@ namespace e_Agenda.WinApp.ModuloDespesa
             if (opcaoEscolhida == DialogResult.OK)
             {
                 repositorioDespesa.Excluir(despesa);
-
-                repositorioCategoria.AtualizarCategorias(despesa.categorias);
 
                 CarregarDespesas();
             }

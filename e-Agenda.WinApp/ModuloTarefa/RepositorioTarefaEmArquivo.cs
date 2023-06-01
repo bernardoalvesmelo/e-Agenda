@@ -3,7 +3,7 @@
     public class RepositorioTarefaEmArquivo : RepositorioEmArquivoBase<Tarefa>,
         IRepositorioTarefa
     {
-        private const string NOME_ARQUIVO_TAREFAS = "C:\\temp\\tarefas\\dados-tarefas.bin";
+        private const string NOME_ARQUIVO_TAREFAS = "ModuloTarefa\\tarefas";
         public RepositorioTarefaEmArquivo() : base(NOME_ARQUIVO_TAREFAS)
         {
         }

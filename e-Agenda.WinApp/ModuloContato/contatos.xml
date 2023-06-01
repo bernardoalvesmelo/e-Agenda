@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfContato xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Contato>
+    <id>1</id>
+    <nome>fgf</nome>
+    <telefone>6467896489</telefone>
+    <email>g@gmai.com</email>
+    <cargo>dgfg</cargo>
+    <empresa>fgdfg</empresa>
+  </Contato>
+</ArrayOfContato>
