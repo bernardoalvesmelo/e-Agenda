@@ -1,7 +1,7 @@
 ﻿using e_Agenda.WinApp.ModuloCompromisso;
 using e_Agenda.WinApp.ModuloContato;
 using e_Agenda.WinApp.ModuloDespesa;
-using e_Agenda.WinApp.ModuloCategoria; 
+using e_Agenda.WinApp.ModuloCategoria;
 using e_Agenda.WinApp.ModuloTarefa;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -38,18 +38,18 @@ namespace e_Agenda.WinApp.Compartilhado
 
         private static ContextoDados instancia;
 
-        public static ContextoDados Instancia 
+        public static ContextoDados Instancia
+        {
+            get
             {
-                get 
+                if (instancia == null)
                 {
-                    if (instancia == null)
-                    {
-                        instancia = new ContextoDados();
-                        instancia.CarregarRegistrosDoArquivo();
-                    }
-                    return instancia;
-                } 
+                    instancia = new ContextoDados();
+                    instancia.CarregarRegistrosDoArquivo();
+                }
+                return instancia;
             }
+        }
 
         public virtual void CarregarRegistrosDoArquivo()
         {
@@ -57,7 +57,7 @@ namespace e_Agenda.WinApp.Compartilhado
             {
                 return;
             }
-                switch (ARQUIVO_FORMATO)
+            switch (ARQUIVO_FORMATO)
             {
                 case "bin":
                     CarregarRegistrosDoArquivoBin();
@@ -77,6 +77,11 @@ namespace e_Agenda.WinApp.Compartilhado
 
             byte[] registroEmBytes = File.ReadAllBytes(NOME_ARQUIVO);
 
+            if(registroEmBytes.Length < 2)
+            {
+                return;
+            }
+
             MemoryStream registroStream = new MemoryStream(registroEmBytes);
 
             ContextoDados contexto = (ContextoDados)serializador.Deserialize(registroStream);
@@ -92,6 +97,11 @@ namespace e_Agenda.WinApp.Compartilhado
 
             byte[] registroEmBytes = File.ReadAllBytes(NOME_ARQUIVO);
 
+            if(registroEmBytes.Length < 2)
+            {
+                return;
+            }
+
             MemoryStream registroStream = new MemoryStream(registroEmBytes);
 
             ContextoDados contexto = (ContextoDados)serializador.Deserialize(registroStream);
@@ -106,6 +116,10 @@ namespace e_Agenda.WinApp.Compartilhado
             JsonSerializerOptions opcoes = ObterConfiguracoes();
 
             string arquivoJson = File.ReadAllText(NOME_ARQUIVO);
+            if(arquivoJson.Length <= 10)
+            {
+                return;
+            }
             ContextoDados contexto = JsonSerializer.Deserialize<ContextoDados>(arquivoJson, opcoes);
 
             AtualizarListas(contexto);
@@ -184,19 +198,19 @@ namespace e_Agenda.WinApp.Compartilhado
 
         private void ConsertarInconsistencias()
         {
-            foreach(Despesa despesa in this.despesas)
+            foreach (Despesa despesa in this.despesas)
             {
                 List<Categoria> categorias = new List<Categoria>();
-                foreach(Categoria categoria in despesa.categorias)
+                foreach (Categoria categoria in despesa.categorias)
                 {
                     categorias.Add(this.categorias.Find(c => c.id == categoria.id));
                 }
                 despesa.categorias = categorias;
             }
-            foreach(Compromisso compromisso in this.compromissos)
+            foreach (Compromisso compromisso in this.compromissos)
             {
-                compromisso.contatoCompromisso = this.contatos.Find(
-                    c => c.id == compromisso.id);
+                compromisso.contatoCompromisso = this.contatos
+                    .Find(c => c.id == compromisso.id);
             }
         }
     }
