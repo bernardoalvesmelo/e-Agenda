@@ -1,4 +1,6 @@
-﻿namespace e_Agenda.WinApp.ModuloCategoria
+﻿using e_Agenda.Dominio.ModuloCategoria;
+
+namespace e_Agenda.WinApp.ModuloCategoria
 {
     public partial class TabelaCategoriaControl : UserControl
     {

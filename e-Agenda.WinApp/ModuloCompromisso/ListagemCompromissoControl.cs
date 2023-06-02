@@ -1,4 +1,5 @@
-﻿using System;
+﻿using e_Agenda.Dominio.ModuloCompromisso;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 

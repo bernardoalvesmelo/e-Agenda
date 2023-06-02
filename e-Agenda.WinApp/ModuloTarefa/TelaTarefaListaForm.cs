@@ -1,4 +1,4 @@
-﻿using System.Windows.Forms;
+﻿using e_Agenda.Dominio.ModuloTarefa;
 
 namespace e_Agenda.WinApp.ModuloTarefa
 {

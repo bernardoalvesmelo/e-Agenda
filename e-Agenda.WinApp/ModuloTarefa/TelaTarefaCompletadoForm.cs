@@ -1,4 +1,5 @@
-﻿using e_Agenda.WinApp.ModuloCompromisso;
+﻿using e_Agenda.Dominio.ModuloTarefa;
+using e_Agenda.WinApp.ModuloCompromisso;
 
 namespace e_Agenda.WinApp.ModuloTarefa
 {

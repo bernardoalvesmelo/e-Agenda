@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="ModuloCategoria\" />
+    <Folder Include="ModuloContato\" />
+    <Folder Include="ModuloTarefa\" />
+    <Folder Include="ModuloCompromisso\" />
+    <Folder Include="ModuloDespesa\" />
+  </ItemGroup>
+
+</Project>
