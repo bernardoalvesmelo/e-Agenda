@@ -18,6 +18,7 @@ namespace e_Agenda.WinApp.ModuloTarefa
             {
                 this.itens = value.itens;
                 this.tarefa = new Tarefa(value.titulo, value.prioridade, value.dataCriacao);
+                this.tarefa.id = value.id;
             }
             get
             {
@@ -40,15 +41,19 @@ namespace e_Agenda.WinApp.ModuloTarefa
 
         public void CarregarItens()
         {
-            if(itens.Count > 1)
-            {
-                dateTimeConclusao.Enabled = false;
-            }
             if(itens.Count > 0)
             {
                 foreach(Item item in itens)
                 {
+                    if(item.completado)
+                    {
+                        continue;
+                    }
                     cmbItens.Items.Add(item.descricao);
+                }
+                if (cmbItens.Items.Count > 1)
+                {
+                    dateTimeConclusao.Enabled = false;
                 }
                 cmbItens.SelectedItem = itens[0].descricao;
                 return;

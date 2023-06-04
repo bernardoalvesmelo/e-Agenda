@@ -34,6 +34,7 @@
             listItens = new ListBox();
             btnCancelar = new Button();
             btnAdicionar = new Button();
+            btnInserir = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -64,6 +65,7 @@
             // listItens
             // 
             listItens.Dock = DockStyle.Fill;
+            listItens.Enabled = false;
             listItens.FormattingEnabled = true;
             listItens.ItemHeight = 15;
             listItens.Location = new Point(0, 0);
@@ -75,7 +77,7 @@
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(217, 157);
+            btnCancelar.Location = new Point(299, 157);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 41);
             btnCancelar.TabIndex = 12;
@@ -86,7 +88,7 @@
             // 
             btnAdicionar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAdicionar.DialogResult = DialogResult.OK;
-            btnAdicionar.Location = new Point(136, 157);
+            btnAdicionar.Location = new Point(218, 157);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(75, 41);
             btnAdicionar.TabIndex = 11;
@@ -94,11 +96,22 @@
             btnAdicionar.UseVisualStyleBackColor = true;
             btnAdicionar.Click += btnConcluir_Click;
             // 
+            // btnInserir
+            // 
+            btnInserir.Location = new Point(299, 15);
+            btnInserir.Name = "btnInserir";
+            btnInserir.Size = new Size(75, 23);
+            btnInserir.TabIndex = 17;
+            btnInserir.Text = "Inserir";
+            btnInserir.UseVisualStyleBackColor = true;
+            btnInserir.Click += btnInserir_Click;
+            // 
             // TelaTarefaListaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(304, 210);
+            ClientSize = new Size(386, 210);
+            Controls.Add(btnInserir);
             Controls.Add(lbDescricao);
             Controls.Add(txtDescricao);
             Controls.Add(panel1);
@@ -123,5 +136,6 @@
         private ListBox listItens;
         private Button btnCancelar;
         private Button btnAdicionar;
+        private Button btnInserir;
     }
 }

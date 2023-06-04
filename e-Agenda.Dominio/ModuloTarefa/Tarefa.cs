@@ -71,6 +71,10 @@
         {
             this.titulo = tarefa.titulo;
             this.prioridade = tarefa.prioridade;
+            if(tarefa.itens != null)
+            {
+                this.itens = tarefa.itens;
+            }
         }
     }
 }

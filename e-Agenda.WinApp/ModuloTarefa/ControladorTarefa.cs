@@ -103,14 +103,15 @@ namespace e_Agenda.WinApp.ModuloTarefa
             }
 
             TelaTarefaListaForm telaTarefa = new TelaTarefaListaForm();
-            telaTarefa.ListaItens = tarefa.itens;
-            telaTarefa.CarregarItens();
 
             DialogResult opcaoEscolhida = telaTarefa.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                repositorioTarefa.InserirItem(tarefa, telaTarefa.Item);
+                foreach (Item item in telaTarefa.ListaItens)
+                {
+                    repositorioTarefa.InserirItem(tarefa, item);
+                }
 
                 CarregarTarefas();
             }
