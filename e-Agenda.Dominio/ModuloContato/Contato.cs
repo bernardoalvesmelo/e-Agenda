@@ -64,7 +64,7 @@ namespace e_Agenda.Dominio.ModuloContato
                 erros.Add("Empresa não pode ser vazio");
             }
             if (!Regex.IsMatch(telefone,
-                @"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"))
+                @"^\(?([0-9]{2})\)?[-. ]?([0-9]{5})[-. ]?([0-9]{4})$"))
             {
                 erros.Add("Telefone está com formato incorreto");
             }

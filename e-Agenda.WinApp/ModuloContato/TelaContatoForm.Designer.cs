@@ -34,7 +34,6 @@
             txtId = new TextBox();
             label2 = new Label();
             txtNome = new TextBox();
-            txtTelefone = new TextBox();
             txtCargo = new TextBox();
             txtEmail = new TextBox();
             txtEmpresa = new TextBox();
@@ -43,6 +42,7 @@
             label5 = new Label();
             label6 = new Label();
             panInputs = new Panel();
+            txtTelefone = new MaskedTextBox();
             panInputs.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,7 +50,7 @@
             // 
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(349, 185);
+            btnGravar.Location = new Point(288, 185);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 41);
             btnGravar.TabIndex = 0;
@@ -62,7 +62,7 @@
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(430, 185);
+            btnCancelar.Location = new Point(369, 185);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 41);
             btnCancelar.TabIndex = 1;
@@ -98,37 +98,30 @@
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(66, 4);
+            txtNome.Location = new Point(66, 3);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(395, 23);
+            txtNome.Size = new Size(334, 23);
             txtNome.TabIndex = 5;
-            // 
-            // txtTelefone
-            // 
-            txtTelefone.Location = new Point(66, 33);
-            txtTelefone.Name = "txtTelefone";
-            txtTelefone.Size = new Size(149, 23);
-            txtTelefone.TabIndex = 6;
             // 
             // txtCargo
             // 
             txtCargo.Location = new Point(66, 62);
             txtCargo.Name = "txtCargo";
-            txtCargo.Size = new Size(149, 23);
+            txtCargo.Size = new Size(100, 23);
             txtCargo.TabIndex = 7;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(312, 33);
+            txtEmail.Location = new Point(267, 36);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(149, 23);
+            txtEmail.Size = new Size(133, 23);
             txtEmail.TabIndex = 8;
             // 
             // txtEmpresa
             // 
-            txtEmpresa.Location = new Point(312, 62);
+            txtEmpresa.Location = new Point(267, 65);
             txtEmpresa.Name = "txtEmpresa";
-            txtEmpresa.Size = new Size(149, 23);
+            txtEmpresa.Size = new Size(133, 23);
             txtEmpresa.TabIndex = 9;
             // 
             // label3
@@ -143,7 +136,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(263, 37);
+            label4.Location = new Point(218, 40);
             label4.Name = "label4";
             label4.Size = new Size(44, 15);
             label4.TabIndex = 11;
@@ -152,7 +145,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(252, 66);
+            label5.Location = new Point(207, 69);
             label5.Name = "label5";
             label5.Size = new Size(55, 15);
             label5.TabIndex = 12;
@@ -169,6 +162,7 @@
             // 
             // panInputs
             // 
+            panInputs.Controls.Add(txtTelefone);
             panInputs.Controls.Add(label6);
             panInputs.Controls.Add(label5);
             panInputs.Controls.Add(label4);
@@ -176,19 +170,26 @@
             panInputs.Controls.Add(txtEmpresa);
             panInputs.Controls.Add(txtEmail);
             panInputs.Controls.Add(txtCargo);
-            panInputs.Controls.Add(txtTelefone);
             panInputs.Controls.Add(txtNome);
             panInputs.Controls.Add(label2);
             panInputs.Location = new Point(24, 45);
             panInputs.Name = "panInputs";
-            panInputs.Size = new Size(473, 121);
+            panInputs.Size = new Size(423, 121);
             panInputs.TabIndex = 15;
+            // 
+            // txtTelefone
+            // 
+            txtTelefone.Location = new Point(66, 33);
+            txtTelefone.Mask = "(99) 00000-0000";
+            txtTelefone.Name = "txtTelefone";
+            txtTelefone.Size = new Size(100, 23);
+            txtTelefone.TabIndex = 16;
             // 
             // TelaContatoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(517, 238);
+            ClientSize = new Size(456, 238);
             Controls.Add(panInputs);
             Controls.Add(txtId);
             Controls.Add(label1);
@@ -215,7 +216,6 @@
         private TextBox txtId;
         private Label label2;
         private TextBox txtNome;
-        private TextBox txtTelefone;
         private TextBox txtCargo;
         private TextBox txtEmail;
         private TextBox txtEmpresa;
@@ -224,5 +224,6 @@
         private Label label5;
         private Label label6;
         private Panel panInputs;
+        private MaskedTextBox txtTelefone;
     }
 }
