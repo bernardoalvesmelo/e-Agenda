@@ -13,6 +13,7 @@
         {
             InitializeComponent();
             this.ConfigurarDialog();
+            cmbAlternativa.SelectedIndex = 0;
         }
 
     }

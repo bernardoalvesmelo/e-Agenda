@@ -70,6 +70,7 @@
             // 
             // cmbItens
             // 
+            cmbItens.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbItens.FormattingEnabled = true;
             cmbItens.Location = new Point(130, 22);
             cmbItens.Name = "cmbItens";

@@ -145,6 +145,7 @@
             // 
             // cmbPagamento
             // 
+            cmbPagamento.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPagamento.FormattingEnabled = true;
             cmbPagamento.Location = new Point(92, 130);
             cmbPagamento.Name = "cmbPagamento";
@@ -168,7 +169,7 @@
             label1.TabIndex = 21;
             label1.Text = "Categorias:";
             // 
-            // TelaDispesaForm
+            // TelaDespesaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -190,7 +191,7 @@
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "TelaDispesaForm";
+            Name = "TelaDespesaForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TelaDispesaForm";

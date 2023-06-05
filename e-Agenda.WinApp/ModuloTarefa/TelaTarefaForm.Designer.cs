@@ -90,6 +90,7 @@
             // 
             // cmbPrioridade
             // 
+            cmbPrioridade.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPrioridade.FormattingEnabled = true;
             cmbPrioridade.Items.AddRange(new object[] { "Baixa", "Normal", "Alta" });
             cmbPrioridade.Location = new Point(152, 121);

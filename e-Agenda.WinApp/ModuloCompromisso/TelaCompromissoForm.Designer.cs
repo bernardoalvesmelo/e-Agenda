@@ -140,6 +140,7 @@
             // 
             // cmbContatos
             // 
+            cmbContatos.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbContatos.FormattingEnabled = true;
             cmbContatos.Location = new Point(89, 50);
             cmbContatos.Name = "cmbContatos";
@@ -175,7 +176,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.ForeColor = Color.IndianRed;
+            label8.ForeColor = Color.MidnightBlue;
             label8.Location = new Point(335, 58);
             label8.Name = "label8";
             label8.Size = new Size(137, 15);

@@ -16,7 +16,7 @@ namespace e_Agenda.WinApp.ModuloTarefa
         {
             set
             {
-                this.itens = value.itens;
+                this.itens = value.itens.FindAll(i => !i.completado);
                 this.tarefa = new Tarefa(value.titulo, value.prioridade, value.dataCriacao);
                 this.tarefa.id = value.id;
             }
@@ -26,12 +26,13 @@ namespace e_Agenda.WinApp.ModuloTarefa
             }
         }
 
-        public DateTime DataConclusao { 
-            get 
+        public DateTime DataConclusao
+        {
+            get
             {
-               return dateTimeConclusao.Enabled ?
-               dateTimeConclusao.Value : new DateTime();
-            } 
+                return dateTimeConclusao.Enabled ?
+                dateTimeConclusao.Value : new DateTime();
+            }
         }
         public TelaTarefaCompletadoForm()
         {
@@ -41,21 +42,22 @@ namespace e_Agenda.WinApp.ModuloTarefa
 
         public void CarregarItens()
         {
-            if(itens.Count > 0)
+
+            if (itens.Count > 0)
             {
-                foreach(Item item in itens)
+                foreach (Item item in itens)
                 {
-                    if(item.completado)
-                    {
-                        continue;
-                    }
                     cmbItens.Items.Add(item.descricao);
                 }
-                if (cmbItens.Items.Count > 1)
+                if (cmbItens.Items.Count > 0)
                 {
-                    dateTimeConclusao.Enabled = false;
+                    cmbItens.SelectedIndex = 0;
+
+                    if (cmbItens.Items.Count > 1)
+                    {
+                        dateTimeConclusao.Enabled = false;
+                    }
                 }
-                cmbItens.SelectedItem = itens[0].descricao;
                 return;
             }
             if (itens.Count == 0)
@@ -66,7 +68,7 @@ namespace e_Agenda.WinApp.ModuloTarefa
 
         private void btnConcluir_Click(object sender, EventArgs e)
         {
-            if(itens.Count > 0)
+            if (itens.Count > 0)
             {
                 item = itens.Find(i => i.descricao == cmbItens.SelectedItem);
             }

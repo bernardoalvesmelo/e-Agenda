@@ -39,7 +39,7 @@ namespace e_Agenda.WinApp.ModuloTarefa
             }
 
             listaItens.Add(item);
-            listItens.Items.Add(item.ToString());
+            listItens.Items.Add(item.descricao);
         }
     }
 }

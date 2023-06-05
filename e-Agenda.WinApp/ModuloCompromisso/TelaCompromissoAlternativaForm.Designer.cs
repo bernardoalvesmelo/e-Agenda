@@ -37,6 +37,7 @@
             // 
             // cmbAlternativa
             // 
+            cmbAlternativa.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbAlternativa.FormattingEnabled = true;
             cmbAlternativa.Items.AddRange(new object[] { "Mostrar todos compromissos", "Mostrar compromissos futuros", "Mostrar compromissos passados" });
             cmbAlternativa.Location = new Point(72, 74);

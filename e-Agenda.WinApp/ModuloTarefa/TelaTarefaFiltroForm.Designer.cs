@@ -67,6 +67,7 @@
             // 
             // cmbAlternativa
             // 
+            cmbAlternativa.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbAlternativa.FormattingEnabled = true;
             cmbAlternativa.Items.AddRange(new object[] { "Mostrar Tarefas Existentes", "Mostrar Tarefas Completadas", "Mostrar Tarefas Pendentes", "Mostrar Tarefas Ordenadas por Prioridade" });
             cmbAlternativa.Location = new Point(78, 67);
